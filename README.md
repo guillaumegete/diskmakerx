@@ -2,8 +2,7 @@
 
 DiskMaker X (https://diskmakerx.com) was my pet project for many years, but the difficulty to maintain it properly became bigger as Apple made inter-app communication much more difficult (i.e. privacy stuff, which is good, BTW !).
 
-Here lies the source code of the project. Feel free to tinker with it.
-
+Here lies the source code of the project. Feel free to tinker with it. The project itself is archived as I won't work on it anymore, but you can still create your own branch of DiskMaker X without fearing the wrath of my lawyers.
 
 ### Important stuff
 
