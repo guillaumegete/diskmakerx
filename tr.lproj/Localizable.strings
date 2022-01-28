@@ -1,0 +1,161 @@
+"A newer version of DiskMaker X is available. Do you want to download it?" = "DiskMaker X’in yeni bir sürümü mevcut. Şimdi güncellemek ister misiniz?" ;
+
+"Not now, thanks" = "Şimdi Değil, Teşekkürler";
+
+"Get new version" = "Güncelle";
+
+"The latest version is:"="Son Sürüm:";
+
+"Not now"="Şimdi Değil";
+
+"Sorry! DiskMaker X won't work with your version of Mac OS X. Upgrade to OS X 10.7 or later before using DiskMaker X." = "Üzgünüm! DiskMaker X, mevcut MacOS X versiyonunuzla çalışmayacaktır. DiskMaker X kullanabilmek için MacOS X sürümünüzün 10.7 ve sonrası olması gerekmektedir.";
+
+"Welcome to DiskMaker X!" = "DiskMaker X’e Hoş Geldiniz!";
+
+"Which version of OS X do you wish to make a boot disk of?" = "OS X’in hangi sürümününün yükleyicisini oluşturmak istiyorsunuz?";
+
+"A copy of Install Mac OS X Lion was found in folder :" = "Mac OS X Lion Yükle’nin bir kopyası şu dosyada bulundu:";
+
+"A copy of Install OS X Mountain Lion was found in folder:" = "Mac OS X Mountain Lion Yükle’nin bir kopyası şu dosyada bulundu:";
+
+"I found a copy of the installer software in this folder:" = "Yükleyicinin bir kopyası bu dosyada bulundu:";
+
+"Do you wish to use this copy?" = "Bu kopyayı kullanmak ister misiniz?";
+
+"Use another copy…" = "Başka bir kopya kullan…";
+
+"Use this copy" = "Bu kopyayı kullan";
+
+"Cancel" = "İptal";
+
+"Continue" = "Devam";
+
+"I detected that the following disk was already built with DiskMaker X:" = "Diskiniz daha önce DiskMaker X ile hazırlanmış.";
+
+"Do you want to use it to build your new install disk ?" = "Yeni yükleme diskiniz için onu kullanmak ister misiniz?";
+
+"Sorry, I can't find a disk to use… Please plug a disk, then relaunch DiskMaker X." = "Üzgünüm, kullanılacak bir disk bulunamadı. Lütfen bir disk takın ve DiskMaker X’i yeniden başlatın.";
+
+"Sorry, I could not get the icon to personnalize the disk. Don't worry, your OS X disk will work fine." = "Üzgünüm, diski kişiselleştirebilmek için ikonu alamadım. Endişelenmeyin, OS X Disk’iniz yine de doğru çalışacaktır.";
+
+"I will leave a copy of the compressed icon named " = "Sıkıştırılmış ikonun şu isimde bir kopyasını bırakacağım:";
+
+".zip on your Desktop so that you can still personnalize the disk yourself." = "Masaüstünüze .zip’leyin. Böylece diskinizi kendiniz kişiselleştirebilirsiniz.";
+
+"Check the FAQ on the web site for more info."  = "Daha fazla bilgi için http://diskmakerx.com/faq/ linkini ziyaret edin." ;
+
+"No Installer application could be found. Click on Select an OS X Installation App and choose the OS X Installer application." = "Hiçbir yükleyici uygulaması bulunamadı. Seç’e tıkladıktan sonra yükleyiciyi seçiniz:" ;
+
+"Select the Installation app for " = "Yükleyici’yi seç";
+
+"Check the FAQ" = "Sıkça Sorulan Sorular(FAQ)’ı incele";
+
+"Select an OS X Installation App…" = "Bir OS X yükleyicisi seçin…" ;
+
+"To create a boot disk, please connect a USB, FireWire disk or insert an SD-Card (8 GB minimum). Then click on Choose the disk." = "Bir yükleme diski oluşturmak için, lütfen bir USB, FireWire yada SD-Card(En Az 8GB) bağlayın. Ardından 'Diski Seç' ’i tıklayın";
+
+"PRO TIP: If you wish to build a multi-installations disk, use Another kind of disk each time, and choose a different partition for each OS you want to make a boot disk for!" = "Pro Tip: Eğer bir çoklu-yükleme diski oluşturmak istiyorsanız, her zaman 'Başka Bir Diski Seç' seçeneğini kullanın ve yükleme diski oluşturmak istediğiniz her OS için ayrı partisyonu seçiniz.";
+
+"Select an Install file…" = "Bir yükleme dosyası seçin…";
+
+"What do you want to build now?" = "Şimdi ne yapmak istersiniz?";
+
+"Create a boot disk" = "Yükleyici Diski Yarat";
+
+"Make a donation" = "Bağış Yap" ;
+
+"http://blog.gete.net/lion-diskmaker-us" = "http://blog.gete.net/lion-diskmaker-fr" ;
+
+"Your OS X boot disk is ready! To use it, reboot your Mac and press the Option (Alt) key, or select it in the Startup Disk preference." = "OS X Yükleyici Diskiniz hazır! Kullanmak için Mac’inizi yeniden başlatın ve ekranda apple logosu gözükmeden önce Option (Alt) tuşuna yükleme diski gözükene kadar basılı tutun. Bunu ayarlar kısmından başlangıç diski seçeneğinden de yapabilirsiniz." ;
+
+"Copy in progress, please wait…" = "Kopyalama yapılıyor, lütfen bekleyiniz…" ;
+
+"The disk could not be created because of an error: " = "Disk şu hatadan dolayı oluşturulamadı : " ;
+"An error occured: " = "Bir hata oluştu : " ;
+
+"Use this disk" = "Bu Diski Kullan" ;
+
+"Quit" = "Çık" ;
+
+
+"Erase then create the disk" = "Sil ve Diski Oluştur" ;
+
+"You are about to erase the volume : " = "Diski silmek üzeresiniz ";
+
+"If you continue, all the data on it will be lost. Are you sure you want to do this ?" = "Devam ederseniz, diskteki tüm veriler kaybolacaktır. Bunu yapmak istediğinizden emin misiniz?";
+
+"WARNING ! THE WHOLE CONTENTS OF THIS VOLUME WILL BE ERASED!" = "DİKKAT ! BU DİSKTEKİ TÜM BÖLÜMLER SİLİNECEKTİR !";
+
+"Copy the package on Desktop" = "Paketi masaüstüne kopyala";
+
+"Don't copy the package" = "Paketi kopyalama";
+
+"An 8 GB USB thumb drive" = "8GB’lık bir disk";
+
+"Another kind of disk" = "Başka tür bir disk";
+
+"Which kind of disk will you use?" = "Ne tür bir disk kullanacaksınız?";
+
+"If you have an 8 GB USB thumb drive, it will be completely erased. If you choose another kind of disk, ONLY the chosen volume will be erased. Your other disks and volumes will be left untouched." = "Eğer 8GB’lık bir disk’i işaretlerseniz, diskin tamamı silinecektir. Eğer Başka tür bir disk’i seçerseniz, sadece seçilen disk bölümü silinecektir. Diğer bölümlerinize dokunulmayacaktır.";
+
+"OS X 10.9 Install Disk" =  "OS X 10.9 Yüklemesi";
+
+"OS X 10.10 Install Disk" =  "OS X 10.10 Yüklemesi";
+
+"OS X 10.11 Install Disk" =  "OS X 10.11 Yüklemesi";
+
+"Open Startup Disk Preference" = "Başlangıç Diski seçeneklerini aç";
+
+"Please wait, DiskMaker X is copying files…" = "Lütfen bekleyin, DiskMaker X dosyaları kopyalıyor…";
+
+"This may take a while… Be patient !" = "Bu biraz vakit alabilir, sabırlı olun!";
+
+"Copying file: " = "Dosyalar kopyalanıyor: ";
+
+"Here are the disks you may want to use to create your boot disk" = "Yükleme diskinizi oluştururken kullanmak isteyebileceğiniz diskler : ";
+
+"Please choose the disk you wish to erase" = "Lütfen silmek istediğiniz diski seçiniz : ";
+
+"Choose this disk" = "Bu diski seç";
+
+"The following volumes are on the same disk and will be erased:" = "Aynı disk içindeki bu bölümler silinecektir : ";
+
+"WARNING: THE WHOLE CONTENT OF THE DISK (AND EVERY OTHER VOLUME OF THIS DISK) WILL BE ERASED!" = "DİKKAT: DİSKİN TÜM İÇERİĞİ (VE DİSKİN DİĞER TÜM BÖLÜMLERİ) SİLİNECEKTİR!";
+
+"Sorry, I can't find a disk to use… Please plug a disk, then click Continue." = "Üzgünüm, kullanmak için bir disk bulamadım. Lütfen bir disk bağlayın, ardından Devam’a tıklayın.";
+
+"If you enjoyed using DiskMaker X, your donations are also much appreciated." = "DiskMaker X işinize yaradıysa, bağış yapabilirsiniz";
+
+"This disk can't be used because it is not a removable disk." = "Bu disk kullanılamaz çünkü silinebilir bir disk değil";
+
+"You will be required to type your login and password soon." = "Birazdan kullanıcı adı ve şifreniz istenecektir.";
+
+"The next step will ask for administrator privileges to build the install disk, so please type your administrator login and password when necessary."="Bir sonraki adımda diski oluşturabilmek için yönetici izni istenecektir. Devam edebilmek için gerektiğinde kullanıcı adı ve şifrenizi giriniz.";
+
+"The following volume has already been used as a bootable install disk. Do you want DiskMaker X to use it ? Its content will be completely erased."="Bu disk zaten bir yükleme diski olarak kullanılmış. DiskMaker X’i kullanmak istediğinize emin misiniz? İçerik tamamen silinecektir.";
+
+"Update this volume"="Bu bölümü güncelle";
+
+"User another volume"="Başka bir bölüm kullan";
+
+"Copying files…"="Dosyalar kopyalanıyor…";
+
+"http://liondiskmaker.com/"="http://liondiskmaker.com/?lang=fr";
+
+"http://liondiskmaker.com/?page_id=149" = "http://liondiskmaker.com/?page_id=151&lang=fr";
+
+"Sorry, DiskMaker X is currently not able yet to build a Mavericks Install disk from Mac OS X 10.6. Backup the OS X Mavericks Installer application, upgrade to Mavericks, then build your install disk with DiskMaker X." = "Üzgünüm, DiskMaker X MacOS X 10.6’dan Mavericks’e yükleme diski oluşturamaz. Mavericks yükleme uygulamasının yedeğini alın, Mavericks’e yükseltme yapın ve ardından yükleme diskinizi DiskMaker X ile oluşturun.";
+
+"More information" = "Daha Fazla Bilgi";
+
+"Sorry, your OS X Install app or DMG may be incomplete. Delete your install application, then download it again from the App Store." = "Üzgünüm, OS X Yükleyiciniz ya da DMG dosyanız eksik olabilir. Mevcut olanı silip, App Store’dan tekrar indiriniz.";
+
+"Sorry, DiskMaker X requires to be run in an admin session. Please switch to an admin session, then launch DiskMaker X again." = "Üzgünüm, DiskMaker X yönetici onayı ile çalıştırılmalıdır. Yönetici onayı verdiğinizden emin olduktan sonra DiskMakerX’i yeniden başlatınız.";
+ 
+"DiskMaker X prepares your disk… please wait!" = "DiskMaker X diskinizi hazırlıyor… Lütfen bekleyiniz!";
+
+"To get rid of this window, click on it and press Cmd + Q" = "Bu pencereden kurtulmak için üzerine tıklayın ve Cmd + Q komutunu kullanın.";
+
+"Copying file: " = "Dosyalar kopyalanıyor: ";
+
+"Sorry, DiskMaker X is not compatible with Path Finder. Please quit Path Finder, relaunch the Finder if necessary, then run DiskMaker X again."="Üzgünüm, DiskMaker X Path Finder ile uyumlu değil. Lütfen Path Finder’dan çıkınız ve DiskMaker X’i yeniden başlatınız.";

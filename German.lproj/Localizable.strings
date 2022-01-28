@@ -1,0 +1,175 @@
+"A newer version of DiskMaker X is available. Do you want to download it?" = "Eine neuere Version von DiskMaker X ist verfügbar. Möchten Sie diese laden?" ;
+
+"Not now, thanks" = "Nicht jetzt, danke" ;
+
+"Get new version" = "Neue Version laden" ;
+
+"The latest version is:" = "Die neueste Version ist:" ;
+
+"Not now" = "Nicht jetzt";
+
+"Sorry! DiskMaker X won't work with your version of Mac OS X. Upgrade to OS X 10.7 or later before using DiskMaker X." = "Tut mir leid, aber DiskMaker X ist nicht kompatibel mit dieser OS X Version. Aktualisieren Sie auf Mac OS X 10.7 (oder höher) um DiskMaker X zu verwenden." ;
+
+"Welcome to DiskMaker X!" = "Willkommen bei DiskMaker X!" ;
+
+"Which version of OS X do you wish to make a boot disk of?" = "Von welcher OS X Version möchten Sie ein Installationsmedium erstellen?" ;
+
+"A copy of Install Mac OS X Lion was found in folder :" = "Eine Kopie der Mac OS X Lion Installation wurde gefunden im Ordner:" ;
+
+"A copy of Install OS X Mountain Lion was found in folder:" = "Eine Kopie der Mac OS X Mountain Lion Installation wurde gefunden im Ordner:" ;
+
+"I found a copy of the installer software in this folder:" = "Eine Mac OS X Installation wurde gefunden im Ordner:" ;
+
+"Do you wish to use this copy?" = "Möchten Sie diese OS X Installation verwenden?" ;
+
+"Use another copy…" = "Eine andere Version verwenden…" ;
+
+"Use this copy" = "Diese Version verwenden" ;
+
+"Cancel" = "Abbrechen" ;
+
+"Continue" = "Weiter" ;
+
+"I detected that the following disk was already built with DiskMaker X:" = "Dieses Medium wurde offenbar bereits mit DiskMaker X erstellt:" ;
+
+"Do you want to use it to build your new install disk ?" = "Möchten Sie dieses Medium aktualisieren oder eine neues Installationsmedium erstellen?" ;
+
+"Sorry, I can't find a disk to use… Please plug a disk, then relaunch DiskMaker X." = "Tut mir leid, es wurde leider kein geeignetes Installations-medium gefunden oder ausgewählt… bitte verbinden Sie ein geeignetes Medium und starten Sie DiskMaker X erneut." ;
+
+"Sorry, I could not get the icon to personnalize the disk. Don't worry, your OS X disk will work fine." = "Tut mir leid, es konnte kein passendes Icon für das Installationsmedium gefunden werden, das Installationsmedium funktioniert aber auch ohne Icon." ;
+
+"I will leave a copy of the compressed icon named " = "Das Icon wurde in einer Archiv-Datei mit Namen " ;
+
+".zip on your Desktop so that you can still personnalize the disk yourself." = ".zip auf dem Schreibtisch hinterlegt, Sie können dieses später als Icon für das Installationsmedium verwenden." ;
+
+"Check the FAQ on the web site for more info." = "Für weitere Informationen lesen Sie bitte das FAQ auf der DiskMaker X Webseite." ;
+
+"No Installer application could be found. Click on Select an OS X Installation App and choose the OS X Installer application." = "Es konnte keine OS X Installation App gefunden werden. Über 'OS X Installation App auswählen' können Sie manuell eine wählen." ;
+
+"Select the Installation app for " = "OS X Installation App auswählen" ;
+
+"Check the FAQ" = "Bitte konsultieren Sie das FAQ (Häufig gestellte Fragen)" ;
+
+"Select an OS X Installation App…" = "Wählen Sie eine OS X Installation App…" ;
+
+
+"Select the Install Mac OS X Lion application OR the InstallESD.dmg file only:" = "Wählen Sie die 'Mac OS X Lion Installation' ODER ein entsprechendes InstallESD.dmg :" ;
+
+"To create a boot disk, please connect a USB, FireWire disk or insert an SD-Card (8 GB minimum). Then click on Choose the disk." = "Um ein Installationsmedium zu erstellen, verbinden Sie ein USB-, FireWire- oder SD-Karten Medium (mindestens 8 GB). Danach wählen Sie dieses als Zielmedium." ;
+
+"PRO TIP: If you wish to build a multi-installations disk, use Another kind of disk each time, and choose a different partition for each OS you want to make a boot disk for!" = "PRO TIP: Wenn Sie ein Installationsmedium mit mehreren Betriebssystemen erstellen möchten, legen Sie mehrere Volumes auf dem Medium an und wählen Sie verschiedene Betriebssysteme für die einzelnen Volumes!" ;
+
+"Select an Install file…" = "Wählen Sie eine Installationsdatei…" ;
+
+"What do you want to build now?" = "Was möchten Sie nun tun?" ;
+
+"Create a boot disk" = "Ein Installationsmedium erstellen" ;
+
+"Make a donation" = "Spenden!" ;
+
+"http://blog.gete.net/lion-diskmaker-us" = "http://blog.gete.net/lion-diskmaker-us" ;
+
+"Your OS X boot disk is ready! To use it, reboot your Mac and press the Option (Alt) key, or select it in the Startup Disk preference." = "Ihr OS X Installationsmedium ist nun einsatzbereit! Um es zu verwenden, starten Sie Ihren Mac neu und halten dabei die Wahlttaste (Alt) gedrückt und wählen dann das Installationsmedium, oder wählen Sie das Installationsmedium als Startvolume in den Systemeinstellungen." ;
+
+"Copy in progress, please wait…" = "Kopiervorgang läuft, bitte warten…" ;
+
+"The disk could not be created because of an error: " = "Das Installationsmedium konnte aufgrund eines Fehlers nicht erstellt werden. Fehler: " ;
+"An error occured: " = "Ein Fehler ist aufgetreten: " ;
+
+"Use this disk" = "Dieses Medium verwenden" ;
+
+"Quit" = "Beenden" ;
+
+"The following disk seems to be the best choice to create your Lion Install disk:" = "Dieses Medium scheint die beste Wahl zur Erstellung eines Lion Installationsmediums zu sein: " ;
+
+"Erase then create the disk" = "Medium löschen und Installationsmedium erstellen" ;
+
+"You are about to erase the volume : " = "Dieses Volume soll gelöscht werden: " ;
+
+"If you continue, all the data on it will be lost. Are you sure you want to do this ?" = "Wenn Sie fortfahren, werden sämtliche Daten auf dem Medium gelöscht. Möchten Sie wirklich fortfahren?" ;
+
+"WARNING ! THE WHOLE CONTENTS OF THIS VOLUME WILL BE ERASED!" = "ACHTUNG! Sämtliche Daten auf diesem Volume werden gelöscht!" ;
+
+"OS X Lion Install Disk" = "OS X Lion Installation" ;
+
+"This file can't be used to create a Lion Installation disk." = "Diese Datei kann nicht zum erstellen eines Lion Installationsmediums genutzt werden." ;
+
+"The AdditionalSpeechVoices.pkg package will NOT be copied on your OS X Lion Install disk. It is not essential to install or even use OS X Lion. However, if you wish to install it later, you'll be able to keep a copy of this package on the Desktop after creating your Lion boot drive." = "Das Paket AdditionalSpeechVoices.pkg wird NICHT auf das OS X Lion Installationsmedium kopiert. Es wird für die Installation von OS X Lion nicht unbedingt benötigt. Für den Fall, dass Sie das Paket zu einem späteren Zeitpunkt installieren möchten, wird eine Kopie des Pakets auf dem Schreibtisch angelegt, nachdem das Lion Installationsmedium erstellt wurde." ;
+
+"The selected disk is too small to contain a full install of Lion." = "Das ausgewählte Medium ist zu klein für ein komplettes OS X Lion Installationsmedium." ;
+
+"To regain space, the Additional Speeches package was not copied on your USB thumb disk. Do you wish to copy this package on your Desktop to install it after installing Lion ?" = "Um mehr Platz verfügbar zu machen, wurde das Paket AdditionalSpeechVoices.pkg nicht auf das Installationsmedium kopiert. Möchten Sie dieses Paket zur späteren Installation auf dem Schreibtisch sichern?" ;
+
+"Copy the package on Desktop" = "Kopie auf dem Schreibtisch sichern" ;
+
+"Don't copy the package" = "Paket nicht kopieren" ;
+
+"An 8 GB USB thumb drive" = "Einen 8 GB USB-Stick" ;
+
+"Another kind of disk" = "Ein anderes Medium" ;
+
+"Which kind of disk will you use?" = "Welche Art von Medium möchten Sie nutzen?" ;
+
+"If you have an 8 GB USB thumb drive, it will be completely erased. If you choose another kind of disk, ONLY the chosen volume will be erased. Your other disks and volumes will be left untouched." = "Wenn Sie einen 8 GB USB-Stick verwenden, wird dieser komplett gelöscht. Wenn Sie eine andere Medienart wählen, wird NUR das AUSGEWÄHLTE Volume auf diesem Medium gelöscht. Andere Volumes auf dem selben Medium werden nicht verändert." ;
+
+"OS X 10.9 Install Disk" = "OS X 10.9 Installation" ;
+
+"OS X 10.10 Install Disk" = "OS X 10.10 Installation" ;
+
+"OS X 10.11 Install Disk" = "OS X 10.11 Installation" ;
+
+"Open Startup Disk Preference" = "Systemeinstellung 'Startvolume' öffnen" ;
+
+"Please wait, DiskMaker X is copying files…" = "Bitte warten, DiskMaker X kopiert nun Dateien…" ;
+
+"This may take a while… Be patient !" = "Nun dauert es eine Weile… bitte etwas Geduld!" ;
+
+"Copying file: " = "Kopiere Datei: " ;
+
+"Here are the disks you may want to use to create your boot disk" = "Diese Medien können Sie zur Erstellung eines Installationsmediums verwenden: " ;
+
+"Please choose the disk you wish to erase" = "Bitte wählen Sie das Medium, das gelöscht werden soll: " ;
+
+"Choose this disk" = "Dieses Medium verwenden" ;
+
+"The following volumes are on the same disk and will be erased:" = "Die folgenden Volumes befinden sich auf dem selben Medium und werden ebenfalls gelöscht: " ;
+
+"WARNING: THE WHOLE CONTENT OF THE DISK (AND EVERY OTHER VOLUME OF THIS DISK) WILL BE ERASED!" = "ACHTUNG : DER GESAMTE INHALT DES MEDIUMS (UND ALLE DARAUF ENTHALTENEN VOLUMES) WERDEN GELÖSCHT!" ;
+
+"Sorry, I can't find a disk to use… Please plug a disk, then click Continue." = "Tut mir leid, es konnte leider kein geeignetes Medium gefunden werden… bitte schließen Sie ein Medium an, dass verwendet werden kann und wählen dann 'Weiter'." ;
+
+"If you enjoyed using DiskMaker X, your donations are also much appreciated." = "Wenn Ihnen DiskMaker X gefallen hat, würden wir uns über eine Spende sehr freuen.";
+
+"This disk can't be used because it is not a removable disk." = "Dieses Medium kann leider nicht verwendet werden, da es sich nicht um ein auswerfbares Medium haldelt.";
+
+"You will be required to type your login and password soon." = "In Kürze werden Ihr Benutzername und Kennwort benötigt." ;
+
+"The next step will ask for administrator privileges to build the install disk, so please type your administrator login and password when necessary." = "Für den nächsten Schritt werden Administratorrechte benötigt, um das Installationsmedium zu erstellen. Falls nötig geben Sie bitte Benutzernamen und Kennwort eines Administratorkontos ein." ;
+
+"The following volume has already been used as a bootable install disk. Do you want DiskMaker X to use it ? Its content will be completely erased." = "Das folgende Volume wurde offenbar bereits als Installationsmedium verwendet. Soll DiskMaker X dieses wieder verwenden? Der bisherige Inhalt wird dabei komplett gelöscht." ;
+
+"Update this volume" = "Dieses Volume aktualisieren" ;
+
+"Use another volume" = "Ein anderes Volume verwenden" ;
+
+"Copying files…" = "Kopiere Dateien…" ;
+
+"http://liondiskmaker.com/" = "http://liondiskmaker.com/" ;
+
+"http://liondiskmaker.com/?page_id=149" = "http://liondiskmaker.com/?page_id=149" ;
+
+"Sorry, DiskMaker X is currently not able yet to build a Mavericks Install disk from Mac OS X 10.6. Backup the OS X Mavericks Installer application, upgrade to Mavericks, then build your install disk with DiskMaker X." = "Tut mir leid, DiskMaker X ist derzeit nicht in der Lage, ein Mavericks Installationsmedium unter Mac OS X 10.6 zu erstellen. Sichern Sie eine Backup-Kopie der OS X Mavericks Installation App, aktualisieren Sie auf OS X Mavericks, und erstellen Sie dann ein Installationsmedium mit DiskMaker X." ;
+
+"More information" = "Weitere Informationen" ;
+
+"Sorry, your OS X Install app or DMG may be incomplete. Delete your install application, then download it again from the App Store." = "Tut mir leid, aber Ihre OS X Installation App oder das InstallESD.dmg sind nicht vollständig. Bitte löschen Sie Ihre OS X Installation App und laden diese erneut aus dem App Store." ;
+
+"Sorry, DiskMaker X requires to be run in an admin session. Please switch to an admin session, then launch DiskMaker X again." = "Tut mir leid, DiskMaker X benötigt Administratorrechte. Bitte melden Sie sich als ein Benutzer mit Administratorrechten an und starten DiskMaker X erneut." ;
+
+"DiskMaker X prepares your disk… please wait!" = "DiskMaker X bereitet das Installationsmedium vor, bitte warten!" ;
+
+"To get rid of this window, click on it and press Cmd + Q" = "Um dieses Fenster zu schließen, drücken Sie Befehlstaste + Q (Cmd + Q)" ;
+
+"Copying file: " = "Kopiere Datei: " ;
+
+"Sorry, DiskMaker X is not compatible with Path Finder. Please quit Path Finder, relaunch the Finder if necessary, then run DiskMaker X again." = "Tut mir leid, DiskMaker X ist inkompatibel mit Path Finder. Bitte beenden Sie Path Finder, starten Sie - falls nötig - den Finder neu und starten dann erneut DiskMaker X." ;

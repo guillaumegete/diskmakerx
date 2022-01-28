@@ -1,0 +1,182 @@
+"macOS Catalina 10.15 Install" = "Installation de macOS 10.15 Catalina";
+
+"A newer version of DiskMaker X is available. Do you want to download it?" = "Une nouvelle version de DiskMaker X est disponible. Souhaitez-vous la télécharger ?" ;
+
+"Not now, thanks" = "Pas maintenant, merci";
+
+"Get new version" = "Télécharger la nouvelle version";
+
+"The latest version is:"="La version la plus récente est :";
+
+"Not now"="Pas maintenant";
+
+"You are currently running "="Vous utilisez actuellement ";
+
+". DiskMaker X won't be able to display notifications of current progress, but your Install disk should be built correctly."="DiskMaker X ne pourra pas afficher de notification de progression, mais votre disque d'installation sera créé correctement";
+
+
+"Sorry! DiskMaker X won't work with your version of macOS. Upgrade to macOS 10.10 or later before using DiskMaker X." = "Désolé ! DiskMaker X n'est pas compatible avec votre version de macOS. Mettez à jour vers macOS 10.9 ou supérieur avant d'utiliser DiskMaker X.";
+
+"Welcome to DiskMaker X!" = "Bienvenue sur DiskMaker X !";
+
+"I found a copy of the installer software in this folder:" = "J'ai trouvé une copie du logiciel d'installation dans ce dossier :";
+
+"Do you wish to use this copy?" = "Souhaitez-vous utiliser cette copie ?";
+
+"Use another copy…" = "Utiliser une autre copie…";
+
+"Use this copy" = "Utiliser cette copie";
+
+"Cancel" = "Annuler";
+
+"Continue" = "Continuer";
+
+"I detected that the following disk was already built with DiskMaker X:" = "J'ai détecté que le disque suivant a déjà été conçu à l'aide de DiskMaker X :";
+
+"Do you want to use it to build your new install disk ? WARNING: the disk will be completely erased!" = "Souhaitez-vous l'utiliser pour concevoir votre nouveau disque d'installation ? ATTENTION : le disque sera complètement effacé !";
+
+"Sorry, I can't find a disk to use… Please plug a disk, then relaunch DiskMaker X." = "Désolé, je ne trouve aucun disque à utiliser… Merci de connecter un disque, puis de relancer DiskMaker X.";
+
+"Sorry, I could not get the icon to personnalize the disk. Don't worry, your macOS disk will work fine." = "Désolé, je ne peux pas personnaliser l'icône du disque. Pas d'inquiétude, votre disque macOS démarrera correctement.";
+
+"I will leave a copy of the compressed icon named " = "Une copie de l'icône compressée, intitulée ";
+
+".zip on your Desktop so that you can still personnalize the disk yourself." = ".zip sera copiée sur votre Bureau, afin de vous permettre de personnaliser votre disque vous-même.";
+
+"Check the FAQ on the web site for more info."  = "Consultez la FAQ sur le site pour obtenir plus d'informations." ;
+
+"No Installer application could be found. Click on Select a macOS Installation App and choose the macOS Installer application." = "Aucune application d'installation n'a pu être trouvée. Cliquez sur Choisir une application d'installation macOS, puis choisissez le logiciel d'installation de macOS." ;
+
+"Select the Installation app for " = "Sélectionnez l'application d'installation pour ";
+
+"Check the FAQ" = "Consulter la FAQ (Foire Aux Questions)";
+
+"Select a macOS Installation App…" = "Choisir une application d'installation de macOS…" ;
+
+"Last question: would you rather go dark?" = "Dernière question : êtes-vous d'humeur plutôt sombre ?";
+
+"I want to come to the Dark side!" = "Je veux passer du côté Obscur !";
+
+"I'm more in a light mood." = "Je me sens plutôt d'une humeur radieuse.";
+
+
+"Select the Install Mac OS X Lion application OR the InstallESD.dmg file only:" = "Sélectionnez le fichier Installation Mac OS X Lion OU un fichier InstallESD.dmg :";
+
+"To create a boot disk, please connect a USB, FireWire disk or insert an SD-Card (8 GB minimum). Then click on Choose the disk." = "Pour créer un disque de démarrage de Lion, insérez un disque USB, FireWire ou une SD-Card (minimum 8 Go). Puis, cliquez sur Sélectionner le disque.";
+
+"PRO TIP: If you wish to build a multi-installations disk, use Another kind of disk each time, and choose a different partition for each OS you want to make a boot disk for!" = "TRUC DE PRO : pour créer un disque multi-OS, choisissez à chaque fois Un autre type de disque, et choisissez une partition différente pour chaque système que vous souhaitez installer !";
+
+"Select an Install file…" = "Choisir un fichier d'installation…";
+
+"What do you want to build now?" = "Que souhaitez-vous maintenant faire ?";
+
+"Create a boot disk" = "Créer un disque de démarrage";
+
+"Make a donation" = "Faire un don" ;
+
+"http://diskmakerx.com" = "http://diskmakerx.com/?lang=fr" ;
+
+"Your macOS boot disk is ready! To use it, reboot your Mac and press the Option (Alt) key, or select it in the Startup Disk preference." = "Votre disque d'installation de macOS est prêt ! Pour l'utiliser, démarrez votre Mac et enfoncez la touche Option (Alt) immédiatement au démarrage, ou sélectionnez le disque dans la préférence Système Démarrage." ;
+
+"Copy in progress, please wait…" = "Copie en cours, merci de patienter…" ;
+
+"The disk could not be created because of an error: " = "La création du disque de démarrage a echoué. Erreur : " ;
+"An error occured: " = "Une erreur est survenue : " ;
+
+"Use this disk" = "Utiliser ce disque" ;
+
+"Quit" = "Quitter" ;
+
+"The following disk seems to be the best choice to create your Lion Install disk:"="Le disque suivant semble être le plus adapté pour créer votre disque d'installation de Lion : ";
+
+"Erase then create the disk" = "Effacer puis créer le disque" ;
+
+"You are about to erase the volume : " = "Vous allez effacer le volume ";
+
+"If you continue, all the data on it will be lost. Are you sure you want to do this ?" = "Si vous continuez, toutes les données s'y trouvant seront effacées.";
+
+"WARNING ! THE WHOLE CONTENTS OF THIS VOLUME WILL BE ERASED!" = "ATTENTION ! TOUT LE CONTENU DE CE VOLUME SERA EFFACÉ !";
+
+"OS X Lion Install Disk" = "Installation OS X Lion";
+
+"This file can't be used to create a macOS Installation disk." = "Ce fichier ne peut pas être utilisé pour créer un disque d'installation de macOS.";
+
+
+"A 16 GB USB thumb drive (ERASE ALL DISK)" = "Une clé USB de 16 Go (EFFACE TOUT LE DISQUE)";
+
+"Another kind of disk (erase only partition)" = "Un autre type de disque (efface seulement la partition";
+
+"Which kind of disk will you use?" = "Quel type de disque souhaitez-vous utiliser ?";
+
+"If you have a 16 GB USB thumb drive, it will be completely erased. If you choose another kind of disk, ONLY the chosen volume will be erased. Your other disks and volumes will be left untouched." = "Si vous disposez d'une clé USB 16 Go, elle sera complètement effacée. Si vous choisissez un autre type de disque, SEUL le volume sélectionné sera effacé. Vos autres disques et volumes ne seront pas modifiés.";
+
+"OS X 10.9 Install Disk" =  "Installation OS X 10.9";
+
+"OS X 10.10 Install Disk" =  "Installation OS X 10.10";
+
+"OS X 10.11 Install Disk" =  "Installation OS X 10.11";
+
+"Open Startup Disk Preference" = "Ouvrir la préférence Démarrage";
+
+"Please wait, DiskMaker X is copying files…" = "Merci de patienter, DiskMaker X est en train de copier des fichiers…";
+
+"This may take a while… Be patient !" = "Cela va sûrement prendre du temps… Soyez patient !";
+
+"Copying file: " = "Copie du fichier : ";
+
+"Here are the disks you may want to use to create your boot disk" = "Voici la liste des disques disponibles pour créer votre disque de démarrage : ";
+
+"Please choose the disk you wish to erase" = "Merci de sélectionner le disque que vous souhaitez effacer : ";
+
+"Choose this disk" = "Choisir ce disque";
+
+"The following volumes are on the same disk and will be erased:" = "Les volumes suivants sont également localisés sur le même disque et seront effacés : ";
+
+"WARNING: THE WHOLE CONTENT OF THE DISK (AND EVERY OTHER VOLUME OF THIS DISK) WILL BE ERASED!" = "ATTENTION : TOUT LE CONTENU DE TOUT CE DISQUE (Y COMPRIS SES AUTRES VOLUMES) SERA EFFACÉ !";
+
+"Sorry, I can't find a disk to use… Please plug a disk, then click Continue." = "Désolé, il n'y a aucun disque que je puisse utiliser… Merci d'insérer un disque, puis de cliquer sur Continuer.";
+
+"If you enjoyed using DiskMaker X, your donations are also much appreciated." = "Si vous avez apprécié DiskMaker X, vous pouvez également faire un don.";
+
+"This disk can't be used because it is not a removable disk." = "Ce disque ne peut pas être utilisé car il n'est pas amovible.";
+
+"You will be required to type your login and password soon." = "Vous allez bientôt devoir taper votre nom et mot de passe.";
+
+"The next step will ask for administrator privileges to build the install disk, so please type your administrator login and password when necessary."="La prochaine étape nécessitera les droits d'accès administrateur pour préparer votre disque d'installation, aussi merci de taper votre identifiant et mot de passe d'administrateur lorsque cela sera requis.";
+
+"The following volume has already been used as a bootable install disk. Do you want DiskMaker X to use it ? Its content will be completely erased."="Le volume suivant a déjà été utilisé pour créer un disque d'installation. Souhaitez-vous le mettre à jour ? Son contenu sera intégralement effacé.";
+
+"Update this volume"="Mettre à jour ce volume";
+
+"Use another volume"="Utiliser un autre volume";
+
+"Copying files…"="Copie de fichiers en cours…";
+
+"http://diskmakerx.com/"="http://diskmakerx.com/?lang=fr";
+
+"http://diskmakerx.com/donations" = "http://diskmakerx.com/?page_id=151&lang=fr";
+
+"Sorry, DiskMaker X is currently not able yet to build a Mavericks Install disk from Mac OS X 10.6. Backup the OS X Mavericks Installer application, upgrade to Mavericks, then build your install disk with DiskMaker X." = "Désolé, DiskMaker X n'est pas actuellement capable de créer un disque d'installation de Mavericks à partir de Mac OS X 10.6. Sauvegardez l'application Installer OS X Mavericks, mettez à jour vers Mavericks, puis construisez votre clé d'installation avec DiskMaker X.";
+
+"More information" = "Plus d'information";
+
+"Sorry, your macOS Install app may be incomplete. Delete your install application, then download it again from the App Store." = "Désolé, votre logiciel d'installation de macOS semble endommagé ou incomplet. Supprimez le logiciel d'installation puis téléchargez-le une nouvelle fois depuis l'App Store.";
+
+"Sorry, DiskMaker X requires to be run in an admin session. Please switch to an admin session, then launch DiskMaker X again." = "Désolé, DiskMaker X doit être lancé à partir d'une session disposant des droits administrateur. Merci d'ouvrir une session administrateur, puis de relancer DiskMaker X.";
+ 
+"DiskMaker X prepares your disk… please wait!" = "DiskMaker X prépare votre disque… Merci de patienter !";
+
+"To get rid of this window, click on it and press Cmd + Q" = "Pour retirer cette fenêtre, enfoncez les touches Cmd + Q";
+
+"Copying file: " = "Copie du fichier : ";
+
+"Sorry, DiskMaker X is not compatible with Path Finder. Please quit Path Finder, relaunch the Finder if necessary, then run DiskMaker X again."="Désolé, DiskMaker X n'est pas compatible avec Path Finder. Merci de quitter Path Finder, relancer le Finder si nécessaire, puis relancer à nouveau DiskMaker X.";
+
+"Now preparing your disk !" = "Préparation de votre disque en cours !";
+
+"We'll notify you of current progress…" = "Nous vous avertirons de la progression de la copie…";
+
+"Now copying data… Please wait." = "Copie des données en cours… Merci de patienter.";
+
+"Percentage complete:" = "Progression : ";
+

@@ -1,0 +1,4247 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Verdana-Bold;\f1\fnil\fcharset0 Verdana;\f2\fnil\fcharset0 Verdana-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red64\green128\blue0;\red76\green78\blue78;
+\red108\green5\blue211;\red0\green22\blue176;\red0\green0\blue255;\red68\green21\blue176;\red251\green0\blue7;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c0;\csgenericrgb\c25000\c50001\c0;\csgenericrgb\c29999\c30457\c30457;
+\csgenericrgb\c42337\c1841\c82833;\csgenericrgb\c0\c8656\c68986;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c26552\c8264\c69162;\cssrgb\c100000\c0\c0;
+}
+\deftab480
+\pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf2 global
+\f1\b0 \cf2  \cf3 MymacOSFileExtension\cf2 \
+\pard\pardeftab480\slleading40\pardirnatural\partightenfactor0
+
+\f0\b \cf2 global
+\f1\b0 \cf2  \cf3 macOS_App\cf2 \
+
+\f0\b \cf2 global
+\f1\b0 \cf2  \cf3 macOS_DMG\cf2 \
+
+\f0\b \cf2 global
+\f1\b0 \cf2  \cf3 macOSisFound\cf2 \
+\
+\
+\cf4 ---- We create a Log file. Might be useful in the future\'85\cf2 \
+\cf4 --\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 HomeFolder\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo $HOME"\cf2 )\
+\
+\cf4 --\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LogPath\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 HomeFolder\cf2  & \cf2 "/Library/Logs/DiskMakerX.log"\cf2 \
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "touch "\cf2  & \cf3 LogPath\cf2 \
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo '--------------------------------------------------------------------------------' >> "\cf2  & \cf3 LogPath\cf2 \
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "date >> "\cf2  & \cf3 LogPath\cf2 \
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Home Path: ' "\cf2  & \cf3 HomeFolder\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+\
+\cf4 -- Get the language.\cf2 \
+\
+
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 lang\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "defaults read NSGlobalDomain AppleLanguages"\cf2 \
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "System Events"\cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LanguageList\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf7 make
+\f1\b0 \cf2  \cf7 new\cf2  
+\f2\i \cf7 property list item
+\f1\i0 \cf2  \cf7 with properties\cf2  \{
+\f2\i \cf7 text
+\f1\i0 \cf2 :\cf3 lang\cf2 \}\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyLanguage\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 value\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 LanguageList\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyLanguage\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf7 item
+\f1\i0 \cf2  \cf2 1\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 MyLanguage\cf2 \
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Current Language: ' "\cf2  & \cf3 MyLanguage\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ContinueButtonLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Continue"\cf2 \
+\
+\cf4 -- Version of DiskMaker X\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CurrentLDMVersion\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "900"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DebugMode\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LDMIcon\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf2 "diskmakerx.icns"\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+\
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CurrentOS\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "sw_vers -productVersion | cut -c 1-4"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "sw_vers -productVersion | cut -c 4-4"\cf2  \cf6 as\cf2  
+\f2\i \cf7 string
+\f1\i0 \cf2 \
+\
+\
+\cf4 -- The cut command is sometimes too short. And "10.1" may not run on Intel Mac so\'85 :-)\cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 CurrentOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "10.1"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CurrentOS\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "sw_vers -productVersion | cut -c 1-5"\cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "sw_vers -productVersion | cut -c 4-5"\cf2  \cf6 as\cf2  
+\f2\i \cf7 string
+\f1\i0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Current OS: ' "\cf2  & \cf3 CurrentOS\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 integer
+\f1\i0 \cf2 \
+\
+\
+\
+\cf4 -- Alert if running on OS smaller than 10.7\cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 less than
+\f1\b0 \cf2  \cf2 10\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NotmacOS106CompatibleLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry! DiskMaker X won't work with your version of macOS. Upgrade to macOS 10.10 or later before using DiskMaker X."\cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 QuitButtonLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Quit"\cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MoreInfoButtonLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "More information"\cf2 \
+	
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 NotmacOS106CompatibleLoc\cf2  \cf6 buttons\cf2  \{\cf3 QuitButtonLoc\cf2 , \cf3 MoreInfoButtonLoc\cf2 \} \cf6 default button\cf2  \cf2 2\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf2 "diskmakerx.icns"\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MoreInfoButtonLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf6 open location
+\f1\b0 \cf2  \cf2 "http://diskmakerx.com/?page_id=28"\cf2 \
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\cf4 -- Alert if running 10.7 or 10.8 : no notification will be displayed\cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "10.7"\cf2  
+\f0\b \cf2 or
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "10.8"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "10.7"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Mac OS X"\cf2 \
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "10.8"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "OS X"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NotNotificationCompatible1Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "You are currently running "\cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NotNotificationCompatible2Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 ". DiskMaker X won't be able to display notifications of current progress, but your Install disk should be built correctly."\cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NotificationDisplayed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+	\
+	
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  (\cf3 NotNotificationCompatible1Loc\cf2  & \cf3 macOSName\cf2  & \cf2 " "\cf2  & \cf3 ShortOS\cf2  & \cf3 NotNotificationCompatible2Loc\cf2 ) \cf6 buttons\cf2  \cf3 ContinueButtonLoc\cf2  \cf6 default button\cf2  \cf2 1\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf2 "diskmakerx.icns"\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NotificationDisplayed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+\
+\
+\
+\
+\cf4 (*************************************************\
+***    Strings declarations to allow localization        ********\
+*************************************************)\cf2 \
+\
+\
+\cf4 -- Update dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DialogUpdate1Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "A newer version of DiskMaker X is available. Do you want to download it?"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NotNowThanksLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Not now, thanks"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 GetNewVersionLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Get new version"\cf2 \
+\
+\cf4 -- Welcome Dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 WelcomeLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Welcome to DiskMaker X!"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyWhichmacOSVersion\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Which version of macOS do you wish to make a boot disk of?"\cf2 \
+\
+\
+\cf4 -- Copy found dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AcopyofmacOSwasfoundinfolderLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I found a copy of the installer software in this folder:"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DoyouwishtousethiscopyLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Do you wish to use this copy?"\cf2 \
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyUseAnotherCopy\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Use another copy\'85"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyUseThisCopyLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Use this copy"\cf2 \
+\
+\
+\cf4 -- Some standard buttons\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 QuitButtonLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Quit"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CancelButtonLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Cancel"\cf2 \
+\
+\
+\cf4 -- No installer found dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LDMDiskDetectedLoc1\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I detected that the following disk was already built with DiskMaker X:"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LDMDiskDetectedLoc2\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Do you want to use it to build your new install disk ? WARNING: the disk will be completely erased!"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyCouldNotFoundInstallmacOSAppLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "No macOS Catalina Installer application could be found. Click on Select a macOS Installation App and choose the macOS Catalina Installer application."\cf2 \
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ChoosemacOSFileLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Select a macOS Installation App\'85"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ChoosemacOSFilePrompt1Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Select the Installation app for "\cf2 \
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyCheckTheFaq\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Check the FAQ"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyCreateTheUSBDrive\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "To create a boot disk, please connect a USB, FireWire disk or insert an SD-Card (16 GB minimum). Then click on Choose the disk."\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MymacOSDiskIsReadyLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Your macOS boot disk is ready! To use it, reboot your Mac and press the Option (Alt) key, or select it in the Startup Disk preference."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyMakeADonationLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Make a donation"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyWebSite\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "http://diskmakerx.com/"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 WannaMakeADonation\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "If you enjoyed using DiskMaker X, your donations are also much appreciated."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 StartupPrefLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Open Startup Disk Preference"\cf2 \
+\
+\cf4 -- Error dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyDiskCouldNotBeCreatedError\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "The disk could not be created because of an error: "\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyAnErrorOccured\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "An error occured: "\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyUseThisDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Use this disk"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyEraseAndCreateTheDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Erase then create the disk"\cf2 \
+\
+\cf4 -- Kind of physical disk dialog \cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 WhichKindOfDiskYouUseLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Which kind of disk will you use?"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 WhichKindOfDiskExplainationLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "If you have a 16 GB USB thumb drive, it will be completely erased. If you choose another kind of disk, ONLY the chosen volume will be erased. Your other disks and volumes will be left untouched."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ProTipLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "PRO TIP: If you wish to build a multi-installations disk, use Another kind of disk each time, and choose a different partition for each OS you want to make a boot disk for!"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 WhichKindOfDiskIsUSB8GBLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "A 16 GB USB thumb drive (ERASE ALL DISK)"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 WhichKindOfDiskIsAnyOtherDiskLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Another kind of disk (erase only partition)"\cf2 \
+\
+\
+\cf4 -- Last alert dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertMessageLocVolume\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "WARNING ! THE WHOLE CONTENTS OF THIS VOLUME WILL BE ERASED!"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertMessageLocDisc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "WARNING: THE WHOLE CONTENT OF THE DISK (AND EVERY OTHER VOLUME OF THIS DISK) WILL BE ERASED!"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertPart1Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "You are about to erase the volume : "\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertPart2Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "If you continue, all the data on it will be lost. Are you sure you want to do this ?"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertPart3Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "The following volumes are on the same disk and will be erased:"\cf2 \
+\
+\cf4 -- Alert for Mavericks\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AdminAlertLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "You will be required to type your login and password soon."\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AdminAlertTitleLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "The next step will ask for administrator privileges to build the install disk, so please type your administrator login and password when necessary."\cf2 \
+\
+\
+\cf4 -- Can't use this disk dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyNotTheCorrectmacOSFileLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "This file can't be used to create an OS X Installation disk."\cf2 \
+\
+\cf4 -- Can't eject disk Dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CantEjectDiskLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry, I can't eject the following volume :"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 PleaseEjectAgainLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Please eject it and try again."\cf2 \
+\
+\cf4 -- Disk selection dialog\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 HereAreTheDisksLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Here are the disks you may want to use to create your boot disk"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ChooseDiskToErase\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Please choose the disk you wish to erase"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ChooseThisDiskLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Choose this disk"\cf2 \
+\
+\
+\cf4 -- Miscellanous localizations\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyCantUseThisDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "This disk can't be used because it is not a removable disk."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ChooseDiskToEraseLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Please choose the disk you wish to erase"\cf2 \
+\
+\
+\cf4 -- No disk available alert\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NoDiskAvailableLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry, I can't find a disk to use\'85 Please plug a disk, then relaunch DiskMaker X."\cf2 \
+\
+\cf4 -- Icon Error Management\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 IconError1Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry, I could not get the icon to personnalize the disk. Don't worry, your macOS disk will work fine."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 IconError2Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I will leave a copy of the compressed icon named "\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 IconError3Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 ".zip on your Desktop so that you can still personnalize the disk yourself."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 IconError4Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Check the FAQ on the web site for more info."\cf2 \
+\
+\
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AlreadyALDMDiskLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "The following volume has already been used as a bootable install disk. Do you want DiskMaker X to use it ? Its content will be completely erased."\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AlreadyALDMDiskConfirmLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Update this volume"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AlreadyALDMDiskCancelLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Use another volume"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CopyingFilesLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Copying files\'85"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyPaypalLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "http://diskmakerx.com/donations/"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MoreInfoButtonLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "More information"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DMGIncompleteLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry, your macOS Install app may be incomplete. Delete your install application, then download it again from the App Store."\cf2 \
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 OpenAppStoreLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Open App Store"\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DarkModeBackgroundDialogLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Last question: would you rather go dark?"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 GoDarkLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I want to come to the Dark side!"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 GoLightLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I'm more in a light mood."\cf2 \
+\
+\cf4 -- Path to sound resource\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 SoundPath\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  ((
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf2 "Roar.mp3"\cf2 ))\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MySupportSite\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "http://diskmakerx.com/faq/"\cf2 \
+\
+\cf4 -- We check if the application is running in an admin session. If not, it's not necessary to go further\'85\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 YouAreNotAdminLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry, DiskMaker X requires to be run in an admin session. Please switch to an admin session, then launch DiskMaker X again."\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 imadmin\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "80"\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 in
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "id -G"\cf2 )\
+\
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Is this user an admin : ' "\cf2  & \cf3 imadmin\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+\
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 imadmin\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 YouAreNotAdminLoc\cf2  \cf6 buttons\cf2  \cf3 QuitButtonLoc\cf2  \cf6 default button\cf2  \cf2 1\cf2 \
+	
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+\cf4 -- Check for Path Finder presence. It's not recommended to use it when using DiskMaker X.\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 PathFinderOpenLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Sorry, DiskMaker X is not compatible with Path Finder. Please quit Path Finder, relaunch the Finder if necessary, then run DiskMaker X again."\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 PathFinderLaunched\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Path Finder"\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 in
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 " ps auxc"\cf2 )\
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Path Finder launched : ' "\cf2  & \cf3 PathFinderLaunched\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 PathFinderLaunched\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 PathFinderOpenLoc\cf2  \cf6 buttons\cf2  \cf3 QuitButtonLoc\cf2  \cf6 default button\cf2  \cf2 1\cf2 \
+	\
+	
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+\cf4 -- Check if a new version is available.\cf2 \
+\
+
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 with
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 3\cf2  
+\f2\i \cf7 seconds
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LatestDMXVersion\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "curl http://diskmakerx.com/CurrentLDMVersion"\cf2  \cf6 as\cf2  
+\f2\i \cf7 string
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 LatestDMXVersion\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 greater than
+\f1\b0 \cf2  \cf3 CurrentLDMVersion\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			\
+			
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 DialogUpdate1Loc\cf2  \cf6 buttons\cf2  \{\cf3 QuitButtonLoc\cf2 , \cf3 NotNowThanksLoc\cf2 , \cf3 GetNewVersionLoc\cf2 \} \cf6 default button\cf2  \cf2 3\cf2 \
+			\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ResultButton\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+			\
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ResultButton\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 GetNewVersionLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				
+\f0\b \cf6 open location
+\f1\b0 \cf2  \cf3 MyWebSite\cf2 \
+				
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ResultButton\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 QuitButtonLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+					
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+\
+\
+\
+\cf4 -- First, we ask which OS we want to deal with so that we can declare a few variables.\cf2 \
+\
+\
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 First_DMG_Volume\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "OS X Install ESD"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 Second_DMG_Volume\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "OS X Base System"\cf2 \
+\
+\
+\
+\cf4 -- Variables for macOS 10.15 Catalina\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSVersion\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "10.15"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 OSFileName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Install macOS Catalina"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 IconName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Catalina.icns"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DiskIconName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "CatalinaIcon1024"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 FinalDiskName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "macOS Catalina Install Disk"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 InstallDiskNameLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "macOS Catalina 10.15 Install"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CreateInstallMediaDiskName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Install macOS Catalina"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DarkBackground\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "DarkCatalinaBackground.jpg"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LightBackground\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "LightCatalinaBackground.jpg"\cf2 \
+\
+\
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Selected OS: ' "\cf2  & \cf3 macOSVersion\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+\
+\cf4 -- First I check if I can find the install app in the Applications folder.\cf2 \
+\cf4 -- I will use Spotlight only if it does not exist here.\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSisFound\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Not found yet"\cf2 \
+\
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "System Events"\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf7 exists
+\f1\b0 \cf2  
+\f2\i \cf7 file
+\f1\i0 \cf2  (\cf2 "/Applications/"\cf2  & \cf3 OSFileName\cf2  & \cf2 ".app/Contents/SharedSupport/InstallESD.dmg"\cf2 ) 
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_DMG\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "'/Applications/"\cf2  & \cf3 OSFileName\cf2  & \cf2 ".app/Contents/SharedSupport/InstallESD.dmg'"\cf2 \
+		\
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_App\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "/Applications/Install macOS Catalina Beta.app"\cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSisFound\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Found"\cf2 \
+		\
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Install App Path: ' "\cf2  & \cf3 macOS_App\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+		\
+		\
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  (\cf3 AcopyofmacOSwasfoundinfolderLoc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf2 "/Applications"\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 DoyouwishtousethiscopyLoc\cf2 ) \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 , \cf3 MyUseAnotherCopy\cf2 , \cf3 MyUseThisCopyLoc\cf2 \} \cf6 default button\cf2  \cf2 3\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+		\
+		\cf4 -- If it's not the right app, you may want to choose another app.\cf2 \
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MyUseThisCopyLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_DMG\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf2 "/Applications/"\cf2  & \cf3 OSFileName\cf2  & \cf2 ".app/Contents/SharedSupport/InstallESD.dmg"\cf2 )\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSisFound\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Found"\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_App\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf2 "/Applications/"\cf2  & \cf3 OSFileName\cf2  & \cf2 ".app"\cf2 )\
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MyUseAnotherCopy\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				\
+				
+\f0\b \cf2 my
+\f1\b0 \cf2  \cf9 theChoiceOfAnotherCopy\cf2 (\cf3 ChoosemacOSFilePrompt1Loc\cf2 , \cf3 OSFileName\cf2 , \cf3 MyNotTheCorrectmacOSFileLoc\cf2 , \cf3 CancelButtonLoc\cf2 , \cf3 LogPath\cf2 )\
+				\
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+			\
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 CancelButtonLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+\
+\
+\cf4 -- If we can't find in /Applications, then we use Spotlight\cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 macOSisFound\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "Not found yet"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 OSSearch\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "mdfind -name '"\cf2  & \cf3 OSFileName\cf2  & \cf2 "' | grep -v Library | head -1"\cf2 )\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 OSSearchResultNumber\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo "\cf2  & \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 OSSearch\cf2  & \cf2 " | wc -l "\cf2 ) 
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 integer
+\f1\i0 \cf2 \
+	\
+	\
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 OSSearch\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 not
+\f1\b0 \cf2  \cf2 ""\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSFolder\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 OSSearch\cf2 \
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  (\cf3 AcopyofmacOSwasfoundinfolderLoc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 macOSFolder\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 DoyouwishtousethiscopyLoc\cf2 ) \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 , \cf3 MyUseAnotherCopy\cf2 , \cf3 MyUseThisCopyLoc\cf2 \} \cf6 default button\cf2  \cf2 3\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MyUseThisCopyLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_App\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 macOSFolder\cf2 )\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_DMG\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  ((\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 macOSFolder\cf2 ) & \cf2 "/Contents/SharedSupport/InstallESD.dmg"\cf2 )\
+			\
+			\
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MyUseAnotherCopy\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				\
+				
+\f0\b \cf2 my
+\f1\b0 \cf2  \cf9 theChoiceOfAnotherCopy\cf2 (\cf3 ChoosemacOSFilePrompt1Loc\cf2 , \cf3 OSFileName\cf2 , \cf3 MyNotTheCorrectmacOSFileLoc\cf2 , \cf3 CancelButtonLoc\cf2 , \cf3 LogPath\cf2 )\
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+			\
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 CancelButtonLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 MyCouldNotFoundInstallmacOSAppLoc\cf2  \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 , \cf3 MyCheckTheFaq\cf2 , \cf3 ChoosemacOSFileLoc\cf2 \} \cf6 default button\cf2  \cf2 3\cf2  \cf6 with icon\cf2  
+\f2\i \cf8 caution
+\f1\i0 \cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MyCheckTheFaq\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf6 open location
+\f1\b0 \cf2  \cf3 MyWebSite\cf2 \
+			
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 ChoosemacOSFileLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				\
+				
+\f0\b \cf2 my
+\f1\b0 \cf2  \cf9 theChoiceOfAnotherCopy\cf2 (\cf3 ChoosemacOSFilePrompt1Loc\cf2 , \cf3 OSFileName\cf2 , \cf3 MyNotTheCorrectmacOSFileLoc\cf2 , \cf3 CancelButtonLoc\cf2 , \cf3 LogPath\cf2 )\
+				\
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\cf4 (************************************************************************************************)\cf2 \
+\
+\cf4 (*** We empirically test the size of the Install App's dmg, to be sure there's not an issue with it.\
+Currently the size of the installer for macOS Catalina is more than 7 GB.\
+***)\cf2 \
+\
+\
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 InstallESD_DMG_Size\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "ls -la "\cf2  & \cf3 macOS_App\cf2  & \cf2 "/Contents/SharedSupport/InstallESD.dmg | awk  '\{ print $5 \}'"\cf2 ) 
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 integer
+\f1\i0 \cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 InstallESD_DMG_Size\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 less than
+\f1\b0 \cf2  \cf2 7.0E+9\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf7 activate
+\f1\b0 \cf2 \
+	
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  (\cf3 DMGIncompleteLoc\cf2  & \cf5 return\cf2  & \cf5 return\cf2 ) \cf6 buttons\cf2  \{\cf3 MoreInfoButtonLoc\cf2 \} \cf6 default button\cf2  \cf2 1\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+	
+\f0\b \cf6 open location
+\f1\b0 \cf2  \cf3 MySupportSite\cf2 \
+	
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+\
+\cf4 (*********************          Creating a bootable disc           ***************************)\cf2 \
+\
+\
+\cf4 -- New routine checks if a file exists with a .LionDiskMaker_OSVersion hidden file at root. \cf2 \
+\
+
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DontEraseTheDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LDMAlreadyThere\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 TheNumberOfEjectableDisks\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  
+\f2\i \cf7 number
+\f1\i0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf2 every
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  
+\f0\b \cf2 whose
+\f1\b0 \cf2  (\cf5 ejectable\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 ))\
+	\
+	
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 TheEjectableDiskList\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 name\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf2 every
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  
+\f0\b \cf2 whose
+\f1\b0 \cf2  (\cf5 ejectable\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 ))\
+	
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2 \
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 NoDiskAvailableLoc\cf2  \cf6 buttons\cf2  \cf3 QuitButtonLoc\cf2  \cf6 default button\cf2  \cf2 1\cf2 \
+		
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 n\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 1\cf2 \
+	\
+	
+\f0\b \cf2 repeat
+\f1\b0 \cf2  
+\f0\b \cf2 with
+\f1\b0 \cf2  \cf3 loopVar\cf2  
+\f0\b \cf2 from
+\f1\b0 \cf2  \cf3 n\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 TheNumberOfEjectableDisks\cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f2\i \cf7 item
+\f1\i0 \cf2  \cf3 n\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 TheEjectableDiskList\cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 HiddenFileToFind\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "/Volumes/"\cf2  & \cf3 MyDisk\cf2  & \cf2 "/.LionDiskMaker_OSVersion"\cf2  
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 string
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf7 exists
+\f1\b0 \cf2  \cf3 HiddenFileToFind\cf2  
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 POSIX file
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LDMAlreadyThere\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 \
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Another DiskMaker X disk found: true' >> "\cf2  & \cf3 LogPath\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NewVolumeName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 MyDisk\cf2 \
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Previous DiskMaker X disk name found: ' "\cf2  & \cf3 MyDisk\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+			\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 AlreadyLDMDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 MyDisk\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 n\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 n\cf2  + \cf2 1\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 repeat
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 LDMAlreadyThere\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf7 activate
+\f1\b0 \cf2 \
+	
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 LDMDiskDetectedLoc1\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 AlreadyLDMDisk\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 LDMDiskDetectedLoc2\cf2  & \cf5 return\cf2  \cf6 buttons\cf2  \{\cf3 AlreadyALDMDiskCancelLoc\cf2 , \cf3 AlreadyALDMDiskConfirmLoc\cf2 \} \cf6 default button\cf2  \cf2 2\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 AlreadyALDMDiskConfirmLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyTargetDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 AlreadyLDMDisk\cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyTargetDiskPath\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 MyTargetDisk\cf2 )\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Path to target: ' "\cf2  & \cf3 MyTargetDiskPath\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LDMAlreadyThere\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 LDMAlreadyThere\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	\cf4 -- We have to know if the selected disk is a 16 GB thumbnail disk or something else to choose the proper way to erase the disk.\cf2 \
+	
+\f0\b \cf7 activate
+\f1\b0 \cf2 \
+	
+\f0\b \cf6 display alert
+\f1\b0 \cf2  \cf3 WhichKindOfDiskYouUseLoc\cf2  \cf6 message\cf2  \cf3 WhichKindOfDiskExplainationLoc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 ProTipLoc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 , \cf3 WhichKindOfDiskIsAnyOtherDiskLoc\cf2 , \cf3 WhichKindOfDiskIsUSB8GBLoc\cf2 \} \cf6 default button\cf2  \cf2 3\cf2  \cf6 as\cf2  
+\f2\i \cf8 critical
+\f1\i0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 WhichKindOfDiskIsUSB8GBLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 \
+		\
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 WhichKindOfDiskIsAnyOtherDiskLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Erase Full Disk: ' "\cf2  & \cf3 MyErasefullDisc\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+	\
+	\cf4 -- We have to define the list of disks available for use.\cf2 \
+	\
+	\
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Erase full Disk: True' >> "\cf2  & \cf3 LogPath\cf2 \
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ListOfDisks\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 name\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf2 every
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  
+\f0\b \cf2 whose
+\f1\b0 \cf2  (\cf5 ejectable\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 ) 
+\f0\b \cf2 and
+\f1\b0 \cf2  (\cf5 capacity\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 less than
+\f1\b0 \cf2  \cf2 1.45E+11\cf2 ))\
+			
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2 \
+				
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 NoDiskAvailableLoc\cf2  \cf6 buttons\cf2  \{\cf3 QuitButtonLoc\cf2 \} \cf6 default button\cf2  \cf2 1\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+				
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertMessageLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 LastAlertMessageLocDisc\cf2 \
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Current OS: ' "\cf2  & \cf3 CurrentOS\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+				\
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ListOfDisks\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 name\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf2 every
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  
+\f0\b \cf2 whose
+\f1\b0 \cf2  (\cf5 ejectable\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 ))\
+				\
+			
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2 \
+				
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 NoDiskAvailableLoc\cf2  \cf6 buttons\cf2  \{\cf3 QuitButtonLoc\cf2 \} \cf6 default button\cf2  \cf2 1\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+				
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertMessageLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 LastAlertMessageLocVolume\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyTargetDisk\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 choose from list
+\f1\b0 \cf2  \cf3 ListOfDisks\cf2  \cf6 with prompt\cf2  \cf3 HereAreTheDisksLoc\cf2  \cf6 with title\cf2  \cf3 ChooseDiskToEraseLoc\cf2  \cf6 cancel button name\cf2  \cf3 CancelButtonLoc\cf2  \cf6 OK button name\cf2  \cf3 ChooseThisDiskLoc\cf2  \cf6 default items\cf2  \cf2 1\cf2  
+\f0\b \cf2 without
+\f1\b0 \cf2  \cf6 multiple selections allowed\cf2  
+\f0\b \cf2 and
+\f1\b0 \cf2  \cf6 empty selection allowed\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 MyTargetDisk\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 not
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MyTargetDiskPath\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 MyTargetDisk\cf2 )\
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 NoDiskAvailableLoc\cf2  \cf6 buttons\cf2  \{\cf3 QuitButtonLoc\cf2 \} \cf6 default button\cf2  \cf2 1\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+		\
+		
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	\
+	\cf4 -- We get all the volumes which are part of the same disk as our target volume. Just to let the user know\'85 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 FullDiskName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 last
+\f1\b0 \cf2  
+\f2\i \cf7 word
+\f1\i0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "diskutil info /Volumes/"\cf2  & \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf3 MyTargetDisk\cf2  
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 string
+\f1\i0 \cf2 ) & \cf2 " | grep 'Part of Whole'"\cf2 )\
+	\
+	\cf4 -- And we get the full size of the disk. Necessary a bit later.\cf2 \
+	\cf4 -- thanks @lolopb who managed to find a way to workaround a bad limitation with diskutil in 10.6\'85\cf2 \
+	\
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 FullListOfDisks\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "for (( i = 2; i <= $(diskutil list "\cf2  & \cf3 FullDiskName\cf2  & \cf2 " | tail -n 1 | cut -c 75-76); i++));  do diskutil info "\cf2  & \cf3 FullDiskName\cf2  & \cf2 "s$i | grep \\"Volume Name: \\" | cut -c 30-75; done | grep -v 'Recovery HD'"\cf2 \
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'List of volumes on same disk : ' "\cf2  & \cf3 FullListOfDisks\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+			\
+			\
+		
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2  \cf3 errMsg\cf2  \cf7 number\cf2  \cf3 errNum\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 FullListOfDisks\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 ""\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertPart2Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 ""\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertPart3Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 ""\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 FullListOfDisks\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 ""\cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 LastAlertPart3Loc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 ""\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	\
+	\cf4 -- Last Warning !!!	There's no turning back from here.\cf2 \
+	\
+	
+\f0\b \cf6 display alert
+\f1\b0 \cf2  \cf3 LastAlertMessageLoc\cf2  \cf6 message\cf2  \cf3 LastAlertPart1Loc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 MyTargetDisk\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 LastAlertPart2Loc\cf2  & \cf5 return\cf2  & \cf3 LastAlertPart3Loc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 FullListOfDisks\cf2  \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 , \cf3 MyEraseAndCreateTheDisk\cf2 \} \cf6 default button\cf2  \cf2 2\cf2  \cf6 as\cf2  
+\f2\i \cf8 warning
+\f1\i0 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 CancelButtonLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+\
+\cf4 -- Choose your Background picture. Absolutely, completely useless, so completely unmissable.\cf2 \
+\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 DarkModeBackgroundDialogLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "Last question: would you rather go dark?"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 GoDarkLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I want to come to the Dark side!"\cf2 \
+
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 GoLightLoc\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 localized string
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 "I'm more in a light mood."\cf2 \
+\
+\
+
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 DarkModeBackgroundDialogLoc\cf2  \cf6 buttons\cf2  \{\cf3 GoLightLoc\cf2 , \cf3 GoDarkLoc\cf2 \} \cf6 default button\cf2  \cf2 1\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 GoDarkLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSBackground\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 DarkBackground\cf2 \
+
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSBackground\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 LightBackground\cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\
+\
+
+\f0\b \cf6 display alert
+\f1\b0 \cf2  \cf3 AdminAlertTitleLoc\cf2  \cf6 message\cf2  \cf3 AdminAlertLoc\cf2  \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 , \cf3 ContinueButtonLoc\cf2 \} \cf6 default button\cf2  \cf2 2\cf2  \cf6 as\cf2  
+\f2\i \cf8 warning
+\f1\i0 \cf2 \
+\
+\
+\cf4 -- Disk creations begins ! --\cf2 \
+\
+\
+\
+\cf4 -- We use uuidgen to warrant a unique name to the disk (avoiding to erase other drives in the process\'85)\cf2 \
+
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 DontEraseTheDisk\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 false
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 NewVolumeName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "uuidgen"\cf2 )\
+	\
+	\cf4 -- To avoid errors, we check that the disk is really ejectable.\cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 IsEjectable\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "diskutil info "\cf2  & \cf3 MyTargetDiskPath\cf2  & \cf2 " | grep -i \\"Ejectable\\" | awk '\{ print $2\}' "\cf2 \
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 IsEjectable\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "No"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'No ejectable disk !'>> "\cf2  & \cf3 LogPath\cf2 \
+		\
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 MyCantUseThisDisk\cf2  \cf6 with icon\cf2  
+\f2\i \cf8 stop
+\f1\i0 \cf2 \
+		\
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		\
+		\
+		\cf4 -- ADD LOCALIZATION HERE\cf2 \
+		\
+		
+\f0\b \cf6 display notification
+\f1\b0 \cf2  \cf2 "Erasing drive "\cf2  & \cf3 MyTargetDiskPath\cf2  & \cf2 "\'85"\cf2 \
+		\
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 MyErasefullDisc\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Target Disk Path: ' "\cf2  & \cf3 MyTargetDiskPath\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'New Volume Name: ' "\cf2  & \cf3 NewVolumeName\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "diskutil partitionDisk $(diskutil info "\cf2  & \cf3 MyTargetDiskPath\cf2  & \cf2 " | grep -i \\"Part Of Whole\\" | awk '\{ print $4\}') 1 GPT jhfs+ "\cf2  & \cf3 NewVolumeName\cf2  & \cf2 " R"\cf2 \
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "diskutil eraseVolume JHFS+ "\cf2  & \cf3 NewVolumeName\cf2  & \cf2 " "\cf2  & \cf3 MyTargetDiskPath\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+\
+\cf4 -- sometimes the volume is not mounted yet while the copy begins. We need to delay a bit...\cf2 \
+\
+
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 2\cf2 \
+\
+\
+
+\f0\b \cf2 with
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 9999\cf2  
+\f2\i \cf7 seconds
+\f1\i0 \cf2 \
+	\
+	\cf4 -- First, we unmount any occurence of the Base System and the OS X Install ESD disk. Just in case.\cf2 \
+	\
+	
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "hdiutil detach -force '/Volumes/"\cf2  & \cf3 Second_DMG_Volume\cf2  & \cf2 "'"\cf2 \
+		
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 2\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "hdiutil detach -force '/Volumes/"\cf2  & \cf3 First_DMG_Volume\cf2  & \cf2 "'"\cf2 \
+		
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 2\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	\
+	\
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+		
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 NewVolumeName\cf2 \
+		\
+		\cf4 -- Total Finder can prevent the modification of windows, so this piece of code will not run if it is running . Thanks to Dj Padzenzky for this part.\cf2 \
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			\'ab
+\f2\i \cf7 event
+\f1\i0 \cf2  \cf2 BATFchck\cf2 \'bb\
+		
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 bounds\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 Finder window
+\f1\i0 \cf2  \cf2 1\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \{\cf2 1\cf2 , \cf2 44\cf2 , \cf2 503\cf2 , \cf2 493\cf2 \}\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 sidebar width\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 Finder window
+\f1\i0 \cf2  \cf2 1\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 0\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 statusbar visible\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 Finder window
+\f1\i0 \cf2  \cf2 1\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 true
+\f1\i0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 current view\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 Finder window
+\f1\i0 \cf2  \cf2 1\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf5 icon view
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+	\cf4 (*********************************************************************************************************************************)\cf2 \
+	\
+	\
+	
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 1\cf2 \
+	\
+	\cf4 -- ADD LOCALIZATION HERE\cf2 \
+	\
+	
+\f0\b \cf6 display notification
+\f1\b0 \cf2  \cf2 "Restoring macOS on "\cf2  & \cf3 NewVolumeName\cf2  & \cf2 "\'85"\cf2 \
+	\
+	\cf4 -- We get the size of the InstallESD.dmg file as it takes the longest time to copy\cf2 \
+	\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 InstallESD_DMG_Size\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "ls -la "\cf2  & \cf3 macOS_App\cf2  & \cf2 "/Contents/SharedSupport/InstallESD.dmg | awk  '\{ print $5 \}'"\cf2 \
+	\
+	\
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "sudo "\cf2  & \cf3 macOS_App\cf2  & \cf2 "/Contents/Resources/createinstallmedia --volume /Volumes/"\cf2  & \cf3 NewVolumeName\cf2  & \cf2 " --nointeraction &> /tmp/createinstallmedia.log &"\cf2  
+\f0\b \cf2 with
+\f1\b0 \cf2  \cf6 administrator privileges\cf2 \
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'OS X App path: ' "\cf2  & \cf3 macOS_App\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'New Volume Name: ' "\cf2  & \cf3 NewVolumeName\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+	\
+	\cf4 -- We reset the counter which will be used to display notifications \cf2 \
+	\
+	
+\f0\b \cf6 display notification
+\f1\b0 \cf2  \cf2 "Now preparing your disk !"\cf2  \cf6 subtitle\cf2  \cf2 "We'll notify you of current progress\'85"\cf2 \
+	\
+	\
+	
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 10\cf2 \
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 myPreviousPercentage\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 0\cf2 \
+	\
+	\
+	\
+	
+\f0\b \cf2 repeat
+\f1\b0 \cf2  
+\f0\b \cf2 with
+\f1\b0 \cf2  \cf3 i\cf2  
+\f0\b \cf2 from
+\f1\b0 \cf2  \cf2 1\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 9999999\cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CreateInstallMediaStatus\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "ps auxc | grep createinstallmedia | wc -l |  awk '\{ print $1 \}'"\cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CreateInstallMediaLog\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "tail -n 1 /tmp/createinstallmedia.log"\cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CheckIfDiskIsErased\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "tail -n 1 /tmp/createinstallmedia.log | grep '100%'  | wc -l | cut -c 8"\cf2 )\
+		\
+		\
+		
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 5\cf2 \
+		\
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 CheckIfDiskIsErased\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "1"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CreateInstallMediaLog\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 CopyingFilesLoc\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+		\
+		\cf4 -- We check the current size of InstallESD.dmg\cf2 \
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CurrentInstallESD_DMG_Size\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "ls -la '/Volumes/"\cf2  & \cf3 CreateInstallMediaDiskName\cf2  & \cf2 "/"\cf2  & \cf3 OSFileName\cf2  & \cf2 ".app/Contents/SharedSupport/InstallESD.dmg' | awk  '\{ print $5 \}'"\cf2 \
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 CurrentInstallESD_DMG_Size\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 not
+\f1\b0 \cf2  \cf2 ""\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 InstallESDPercentage\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (\cf3 CurrentInstallESD_DMG_Size\cf2  / \cf3 InstallESD_DMG_Size\cf2 ) * \cf2 100\cf2  
+\f0\b \cf2 as
+\f1\b0 \cf2  
+\f2\i \cf7 integer
+\f1\i0 \cf2 \
+				\
+				
+\f0\b \cf2 if
+\f1\b0 \cf2  ((\cf3 InstallESDPercentage\cf2  
+\f0\b \cf2 mod
+\f1\b0 \cf2  \cf2 5\cf2 ) 
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 0\cf2 ) 
+\f0\b \cf2 and
+\f1\b0 \cf2  (\cf3 InstallESDPercentage\cf2  > \cf3 myPreviousPercentage\cf2 ) 
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+					
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 InstallESDPercentage\cf2  = \cf2 100\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+						
+\f0\b \cf6 display notification
+\f1\b0 \cf2  \cf2 "Copy is done."\cf2  \cf6 subtitle\cf2  \cf2 "Percentage complete: "\cf2  & \cf3 InstallESDPercentage\cf2  & \cf2 "%"\cf2 \
+					
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+						
+\f0\b \cf6 display notification
+\f1\b0 \cf2  \cf2 "Now copying data\'85 Please wait."\cf2  \cf6 subtitle\cf2  \cf2 "Percentage complete: "\cf2  & \cf3 InstallESDPercentage\cf2  & \cf2 "%"\cf2 \
+					
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+					\
+					
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 5\cf2 \
+					
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 myPreviousPercentage\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 InstallESDPercentage\cf2 \
+				
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\
+		\cf4 -- Is createinstallmedia still running ?\cf2 \
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 CreateInstallMediaStatus\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "0"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 exit
+\f1\b0 \cf2  
+\f0\b \cf2 repeat
+\f1\b0 \cf2 \
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 repeat
+\f1\b0 \cf2 \
+	\
+	\
+	\
+	\
+	\
+	\cf4 ----------- Mounting the DMG files -----------\cf2 \
+	\
+	\cf4 -- ADD LOCALIZATION HERE\cf2 \
+	\
+	\
+	
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\cf4 -- We get the version number. We will use it to rename the USB disk properly later.\cf2 \
+		\cf4 -- And YES, OS name is hardcoded because escaping this stuff is just boring.\cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSImageVersion\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "defaults read '/Volumes/Install macOS Catalina Beta/Install macOS Catalina Beta.app/Contents/SharedSupport/InstallInfo.plist' \\"System Image Info\\" | grep version | awk '\{ print $3 \}'  | tr -d '\\"' | tr -d ';' "\cf2 \
+		\
+		\
+		\
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 QuoteCreateInstallMediaDiskName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+		\
+		\cf4 -- This fixes a bug where the Install Disk was not visible in Startup Disk system Preference. Thanks to Eric Knibbe (@EricFromCanada) for the fix !\cf2 \
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "touch /Volumes/"\cf2  & \cf3 QuoteCreateInstallMediaDiskName\cf2  & \cf2 "/mach_kernel"\cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "chflags hidden /Volumes/"\cf2  & \cf3 QuoteCreateInstallMediaDiskName\cf2  & \cf2 "/mach_kernel"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 position\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 alias
+\f1\i0 \cf2  (\cf3 CreateInstallMediaDiskName\cf2  & \cf2 ":"\cf2  & \cf3 OSFileName\cf2  & \cf2 ".app"\cf2 ) 
+\f0\b \cf2 to
+\f1\b0 \cf2  \{\cf2 693\cf2 , \cf2 165\cf2 \}\
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+			
+\f0\b \cf7 close
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2 \
+			
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 icon size\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 icon view options
+\f1\i0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 128\cf2 \
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 sidebar width\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 0\cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 bounds\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \{\cf2 5\cf2 , \cf2 5\cf2 , \cf2 815\cf2 , \cf2 455\cf2 \}\
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+		\
+		\
+		\
+		\cf4 -- Apply background\cf2 \
+		\
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 BackgroundImage\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 macOSBackground\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+			
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 BackgroundImagePath\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 BackgroundImage\cf2 )\
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "cp "\cf2  & \cf3 BackgroundImagePath\cf2  & \cf2 " '/Volumes/"\cf2  & \cf3 CreateInstallMediaDiskName\cf2  & \cf2 "'"\cf2 \
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+			
+\f0\b \cf7 activate
+\f1\b0 \cf2 \
+			
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 background picture\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 icon view options
+\f1\i0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f2\i \cf7 file
+\f1\i0 \cf2  \cf3 macOSBackground\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "chflags hidden '/Volumes/"\cf2  & \cf3 CreateInstallMediaDiskName\cf2  & \cf2 "/"\cf2  & \cf3 macOSBackground\cf2  & \cf2 "'"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\
+		\cf4 -- We need to close and re-open the window to refresh position of icons. Known bug. Oh well\'85\cf2 \
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+			
+\f0\b \cf7 close
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2 \
+			
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 1\cf2 \
+			
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 error_message\cf2  \cf7 number\cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 error_number\cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 error_text\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 MyAnErrorOccured\cf2  & 
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 error_number\cf2  & \cf2 ". "\cf2  & 
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 error_message\cf2 \
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 MyDiskCouldNotBeCreatedError\cf2  & \cf3 error_text\cf2 \
+		
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	\
+	\cf4 -------------------------------------------------------------------------------------------\cf2 \
+	\cf4 -- Don't forget the custom icon ! 									--\cf2 \
+	\cf4 -------------------------------------------------------------------------------------------\cf2 \
+	\
+	\cf4 -- We copy the icon in the /tmp folder, otherwise AppleScript will complain that it won't be able to access the icon file inside the bundle. Oh well.\cf2 \
+	\
+	
+\f0\b \cf2 with
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 9999\cf2  
+\f2\i \cf7 seconds
+\f1\i0 \cf2 \
+		\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 ZipIconPath\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  ((\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 ) & \cf2 "Contents/Resources/"\cf2  & \cf3 DiskIconName\cf2  & \cf2 ".zip"\cf2 ))\
+		\
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "cp "\cf2  & \cf3 ZipIconPath\cf2  & \cf2 " /tmp/"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\cf4 -- We could have used gzip or another command, but this was the only way to preserve the icon file on the picture.\cf2 \
+		\
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 ShortOS\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  
+\f0\b \cf2 greater than
+\f1\b0 \cf2  \cf2 9\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "open -a '/System/Library/CoreServices/Applications/Archive Utility.app' /private/tmp/"\cf2  & \cf3 DiskIconName\cf2  & \cf2 ".zip"\cf2 \
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "open -a '/System/Library/CoreServices/Archive Utility.app' /private/tmp/"\cf2  & \cf3 DiskIconName\cf2  & \cf2 ".zip"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 2\cf2 \
+		\
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "killall -9 'Archive Utility'"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\cf4 -- We had to add some delay because SSDs may be too fast and not provide time to copy and paste the icon.\cf2 \
+		\
+		
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 3\cf2 \
+		\
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+				
+\f0\b \cf7 activate
+\f1\b0 \cf2 \
+				\
+				
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 information window
+\f1\i0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 file
+\f1\i0 \cf2  (\cf2 "private:tmp:"\cf2  & \cf3 DiskIconName\cf2  & \cf2 ".png"\cf2 ) 
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf5 startup disk\cf2 \
+				\
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+			\
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "System Events"\cf2 \
+				
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application process
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+					
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2 \
+						
+\f0\b \cf7 keystroke
+\f1\b0 \cf2  \cf5 tab\cf2 \
+						
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 1\cf2 \
+						
+\f0\b \cf7 keystroke
+\f1\b0 \cf2  \cf2 "c"\cf2  \cf7 using\cf2  
+\f2\i \cf5 command down
+\f1\i0 \cf2 \
+						
+\f0\b \cf7 keystroke
+\f1\b0 \cf2  \cf2 "w"\cf2  \cf7 using\cf2  
+\f2\i \cf5 command down
+\f1\i0 \cf2 \
+					
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+			
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 1\cf2 \
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+				
+\f0\b \cf7 open
+\f1\b0 \cf2  
+\f2\i \cf7 information window
+\f1\i0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+			\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "System Events"\cf2 \
+				
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application process
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+					
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 front
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2 \
+						
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 1\cf2 \
+						
+\f0\b \cf7 keystroke
+\f1\b0 \cf2  \cf5 tab\cf2 \
+						
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 1\cf2 \
+						
+\f0\b \cf7 keystroke
+\f1\b0 \cf2  \cf2 "v"\cf2  \cf7 using\cf2  
+\f2\i \cf5 command down
+\f1\i0 \cf2 \
+						
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 2\cf2 \
+						\
+						
+\f0\b \cf7 keystroke
+\f1\b0 \cf2  \cf2 "w"\cf2  \cf7 using\cf2  
+\f2\i \cf5 command down
+\f1\i0 \cf2 \
+					
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+			\
+			\
+			\cf4 -- Too many icons errors with third-party utilities with decompression tools. In this case, we'll just leave the icon file on the Desktop.\cf2 \
+			\
+		
+\f0\b \cf2 on
+\f1\b0 \cf2  
+\f0\b \cf2 error
+\f1\b0 \cf2 \
+			
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 IconError1Loc\cf2  & \cf5 return\cf2  & \cf3 IconError2Loc\cf2  & \cf3 DiskIconName\cf2  & \cf3 IconError3Loc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 IconError4Loc\cf2  \cf6 buttons\cf2  \cf3 ContinueButtonLoc\cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "cp "\cf2  & \cf3 ZipIconPath\cf2  & \cf2 " ~/Desktop"\cf2 \
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf7 close
+\f1\b0 \cf2  
+\f2\i \cf7 window
+\f1\i0 \cf2  \cf2 "tmp"\cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			\
+			\cf4 -- We personnalize the disk name with OS version now\cf2 \
+			\
+			
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 CompleteDiskName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (\cf3 InstallDiskNameLoc\cf2  & \cf2 " - "\cf2  & \cf3 macOSImageVersion\cf2 )\
+				
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf5 name\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f2\i \cf7 disk
+\f1\i0 \cf2  \cf3 CreateInstallMediaDiskName\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf3 CompleteDiskName\cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+		\
+		\
+		\cf4 -- Let's delete the temporary icon.\cf2 \
+		\cf4 --\cf2 \
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "rm -f /tmp/"\cf2  & \cf3 DiskIconName\cf2  & \cf2 ".png"\cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "rm -f /tmp/"\cf2  & \cf3 DiskIconName\cf2  & \cf2 ".zip"\cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\cf4 -- We create an invisible file with OS Version in it. Useful to re-use the disk rapidly.\cf2 \
+		\
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo "\cf2  & \cf3 macOSImageVersion\cf2  & \cf2 "  &> "\cf2  & \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  (\cf2 "/Volumes/"\cf2  & \cf3 CompleteDiskName\cf2 ) & \cf2 "/.LionDiskMaker_OSVersion"\cf2 \
+		\
+		\
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2 \
+	\
+	\cf4 (********************************************************************\
+			*********************                  VICTORY !                      ******************** \
+			********************************************************************)\cf2 \
+	\
+	\
+	
+\f0\b \cf2 with
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf2 9999\cf2  
+\f2\i \cf7 seconds
+\f1\i0 \cf2 \
+		\
+		\
+		\cf4 -- Roar ! :)\cf2 \
+		\
+		\
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  (\cf2 "afplay "\cf2  & (\cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 SoundPath\cf2 ))\
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Roar !'>> "\cf2  & \cf3 LogPath\cf2 \
+			\
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		\
+		\
+		\cf4 -- Display final dialog\cf2 \
+		
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf7 activate
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		\
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 MymacOSDiskIsReadyLoc\cf2  & \cf5 return\cf2  & \cf5 return\cf2  & \cf3 WannaMakeADonation\cf2  \cf6 buttons\cf2  \{\cf3 QuitButtonLoc\cf2 , \cf3 StartupPrefLoc\cf2 , \cf3 MyMakeADonationLoc\cf2 \} \cf6 default button\cf2  \cf2 3\cf2  \cf6 with icon\cf2  
+\f0\b \cf6 path to resource
+\f1\b0 \cf2  \cf3 IconName\cf2  \cf6 in bundle\cf2  (
+\f0\b \cf6 path to
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf8 button returned\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf5 result\cf2 \
+		
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 MyMakeADonationLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+			
+\f0\b \cf6 open location
+\f1\b0 \cf2  \cf3 MyPaypalLoc\cf2 \
+			
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+			
+\f0\b \cf2 if
+\f1\b0 \cf2  
+\f0\b \cf2 the
+\f1\b0 \cf2  \cf3 button_pressed\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf3 StartupPrefLoc\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+				
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "open   '/System/Library/PreferencePanes/StartupDisk.prefPane'"\cf2 \
+			
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+		\
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2 \
+	\
+
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 timeout
+\f1\b0 \cf2 \
+\
+\cf4 -- End of the choice of method to create the disk --\cf2 \
+\
+\
+\
+\cf4 ---------------------------------------------------------------------------------------\cf2 \
+\cf4 ------------------------------------- HANDLERS ------------------------------------\cf2 \
+\cf4 ---------------------------------------------------------------------------------------\cf2 \
+\
+\
+\cf4 -- RemoveTheCrubs Handler\cf2 \
+\
+
+\f0\b \cf2 on
+\f1\b0 \cf2  \cf9 RemoveTheCrubs\cf2 ()\
+	
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "rm /tmp/rsyncldm.log"\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "killall -9 rsync"\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 try
+\f1\b0 \cf2 \
+	
+\f0\b \cf7 delay
+\f1\b0 \cf2  \cf2 2\cf2 \
+	\
+	\
+
+\f0\b \cf2 end
+\f1\b0 \cf2  \cf9 RemoveTheCrubs\cf2 \
+\
+\cf4 -- Handler to manually choose an OS X install app or DMG.\cf2 \
+\
+
+\f0\b \cf2 on
+\f1\b0 \cf2  \cf9 theChoiceOfAnotherCopy\cf2 (\cf3 ChoosemacOSFilePrompt1Loc\cf2 , \cf3 OSFileName\cf2 , \cf3 MyNotTheCorrectmacOSFileLoc\cf2 , \cf3 CancelButtonLoc\cf2 , \cf3 LogPath\cf2 )\
+	
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MymacOSFile\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  (
+\f0\b \cf6 choose file
+\f1\b0 \cf2  \cf6 with prompt\cf2  \cf3 ChoosemacOSFilePrompt1Loc\cf2  & \cf3 OSFileName\cf2 )\
+	\
+	
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f2\i \cf7 application
+\f1\i0 \cf2  \cf2 "Finder"\cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 MymacOSFileExtension\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 name extension\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 MymacOSFile\cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 tell
+\f1\b0 \cf2 \
+	\
+	
+\f0\b \cf2 if
+\f1\b0 \cf2  \cf3 MymacOSFileExtension\cf2  
+\f0\b \cf2 is
+\f1\b0 \cf2  \cf2 "app"\cf2  
+\f0\b \cf2 then
+\f1\b0 \cf2 \
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_App\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  ((\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 MymacOSFile\cf2 ))\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOS_DMG\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf5 quoted form\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  ((\cf5 POSIX path\cf2  
+\f0\b \cf2 of
+\f1\b0 \cf2  \cf3 MymacOSFile\cf2 ) & \cf2 "/Contents/SharedSupport/InstallESD.dmg"\cf2 )\
+		
+\f0\b \cf2 set
+\f1\b0 \cf2  \cf3 macOSisFound\cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  \cf2 "Found"\cf2 \
+		
+\f0\b \cf2 tell
+\f1\b0 \cf2  
+\f0\b \cf2 me
+\f1\b0 \cf2  
+\f0\b \cf2 to
+\f1\b0 \cf2  
+\f0\b \cf6 do shell script
+\f1\b0 \cf2  \cf2 "echo 'Install App Path: ' "\cf2  & \cf3 macOS_App\cf2  & \cf2 ">> "\cf2  & \cf3 LogPath\cf2 \
+	
+\f0\b \cf2 else
+\f1\b0 \cf2 \
+		
+\f0\b \cf6 display dialog
+\f1\b0 \cf2  \cf3 MyNotTheCorrectmacOSFileLoc\cf2  \cf6 buttons\cf2  \{\cf3 CancelButtonLoc\cf2 \} \cf6 with icon\cf2  
+\f2\i \cf8 stop
+\f1\i0 \cf2 \
+		
+\f0\b \cf2 return
+\f1\b0 \cf2 \
+	
+\f0\b \cf2 end
+\f1\b0 \cf2  
+\f0\b \cf2 if
+\f1\b0 \cf2 \
+	\
+	\
+
+\f0\b \cf2 end
+\f1\b0 \cf2  \cf9 theChoiceOfAnotherCopy\cf2 \
+\
+\
+\
+}

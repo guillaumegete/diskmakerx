@@ -1,0 +1,175 @@
+"A newer version of DiskMaker X is available. Do you want to download it?" = "Er is een nieuwe versie van DiskMaker X beschikbaar. Wil je hem nu downloaden?" ;
+
+"Not now, thanks" = "Niet nu, dankje";
+
+"Get new version" = "Download de nieuwe versie";
+
+"The latest version is:"="De laatste versie is:";
+
+"Not now"="Niet nu";
+
+"Sorry! DiskMaker X won't work with your version of Mac OS X. Upgrade to OS X 10.7 or later before using DiskMaker X." = "Sorry ! DiskMaker X werkt niet met deze versie van Mac OS X. Update naar OS X 10.7 of hoger om gebruik te maken van DiskMaker X.";
+
+"Welcome to DiskMaker X!" = "Welkom bij DiskMaker X!";
+
+"Which version of OS X do you wish to make a boot disk of?" = "Van welke OS X versie wil je een opstartschijf maken?";
+
+"A copy of Install Mac OS X Lion was found in folder :" = "Een kopie van Instaal Mac OS X Lion is gevonden in deze map:";
+
+"A copy of Install OS X Mountain Lion was found in folder:" = "Een kopie van Instaal Mac OS X Mountain Lion is gevonden in deze map:";
+
+"I found a copy of the installer software in this folder:" = "Ik heb een kopie van de installer gevonden in deze map:";
+
+"Do you wish to use this copy?" = "Wil je deze kopie gebruiken?";
+
+"Use another copy…" = "Gebruik een andere kopie…";
+
+"Use this copy" = "Gebruik deze kopie";
+
+"Cancel" = "Annuleer";
+
+"Continue" = "Verder";
+
+"I detected that the following disk was already built with DiskMaker X:" = "Ik zie deze schijf eerder is gebouwd met DiskMaker X:";
+
+"Do you want to use it to build your new install disk ?" = "Wil je hem gebruiken voor een nieuwe installatieschijf?";
+
+"Sorry, I can't find a disk to use… Please plug a disk, then relaunch DiskMaker X." = "Sorry, ik kan geen beschikbare schrijf vinden… Sluit een schijf aan en herstart DiskMaker X.";
+
+"Sorry, I could not get the icon to personnalize the disk. Don't worry, your OS X disk will work fine." = "Sorry, ik het is niet gelukt om de schijf een eigen icoon te geven. Weest gerust, je OS X schijf zal verder goed werken.";
+
+"I will leave a copy of the compressed icon named " = "Ik laat een kopie van het icoon achter genaamd ";
+
+".zip on your Desktop so that you can still personnalize the disk yourself." = ".zip op je bureaublad, hiermee kun je zelf het icoon van de schrijf aanpassen.";
+
+"Check the FAQ on the web site for more info."  = "Raadpleeg de FAQ op de website voor meer informatie." ;
+
+"No Installer application could be found. Click on Select an OS X Application App and choose the OS X Installer application." = "Er kon geen installer gevonden worden. Klik op Selecteer een OS X Installer App en kies de OS X Installer App." ;
+
+"Select the Installation app for " = "Selecteer de OS X installatie App";
+
+"Check the FAQ" = "Raadpleeg de FAQ (Veel gestelde vragen)";
+
+"Select an OS X Installation App…" = "Selecteer een OS X Installer App…" ;
+
+
+"Select the Install Mac OS X Lion application OR the InstallESD.dmg file only:" = "Selecteer de Mac OS X Lion installer OF het InstallESD.dmg bestand :";
+
+"To create a boot disk, please connect a USB, FireWire disk or insert an SD-Card (8 GB minimum). Then click on Choose the disk." = "Sluit een USB, FireWire of een SD-Card (minimaal 8 GB) om een opstartschij te maken. Daarna, klik op kies de schijf.";
+
+"PRO TIP: If you wish to build a multi-installations disk, use Another kind of disk each time, and choose a different partition for each OS you want to make a boot disk for!" = "PRO TIP: Om een multi-OS installatieschijf te maken: Verdeel de schijf in verschillende partities en selecteer steed een andere partitie en OS bij het maken!";
+
+"Select an Install file…" = "Selecteer een Install bestand…";
+
+"What do you want to build now?" = "Wat wil je nu maken?";
+
+"Create a boot disk" = "Creër een opstartschrijf";
+
+"Make a donation" = "Doneer" ;
+
+"http://blog.gete.net/lion-diskmaker-us" = "http://blog.gete.net/lion-diskmaker-nl" ;
+
+"Your OS X boot disk is ready! To use it, reboot your Mac and press the Option (Alt) key, or select it in the Startup Disk preference." = "Je OS X opstartschijf is klaar! Om hem te gebruiken, herstart je Mac en houd de Option toets (alt) ingedrukt, of selecteer de opstartschijf in het opstartschijf gedeelte in systeemvoorkeuren." ;
+
+"Copy in progress, please wait…" = "Bezig met kopieren, even geduld…" ;
+
+"The disk could not be created because of an error: " = "De schijf kon niet gemaakt worden door een fout: " ;
+"An error occured: " = "Er is een fout opgetreden: " ;
+
+"Use this disk" = "Gebruik deze schijf" ;
+
+"Quit" = "Afsluiten" ;
+
+"The following disk seems to be the best choice to create your Lion Install disk:"="De volgende schijf is het meest geschikt om je Lion installatieschijf op te maken: ";
+
+"Erase then create the disk" = "Wis de schijf en creër de opstartschijf" ;
+
+"You are about to erase the volume : " = "Je staat op het punt de schijf te wissen";
+
+"If you continue, all the data on it will be lost. Are you sure you want to do this ?" = "Als je doorgaat worden alle gegevens op de schijf gewist. Weet je zeker dat je door wil gaan?";
+
+"WARNING ! THE WHOLE CONTENTS OF THIS VOLUME WILL BE ERASED!" = "WAARSCHUWING! DE COMPLETE INHOUD VAN DEZE SCHIJF WORD GEWIST!";
+
+"OS X Lion Install Disk" = "OS X Lion Installatieschijf";
+
+"This file can't be used to create a Lion Installation disk." = "Dit bestand kan niet worden gebruikt om Lion Installatieschijf te maken.";
+
+"The AdditionalSpeechVoices.pkg package will NOT be copied on your OS X Lion Install disk. It is not essential to install or even use OS X Lion. However, if you wish to install it later, you'll be able to keep a copy of this package on the Desktop after creating your Lion boot drive." = "De AdditionalSpeechVoices.pkg pakket zal NIET worden gekopieerd naar je OS X Lion Installatieschijf. Het is niet noodzakelijk om te installeren bij OS X Lion. Maar, ials je het toch wil installeren, kun je een kopie van dit pakket op je bureaublad zetten nat het maken van Lion opstartschijf.";
+
+"The selected disk is too small to contain a full install of Lion." = "De geselecteerde schijf is te klein als Lion Installatieschijf.";
+
+"To regain space, the Additional Speeches package was not copied on your USB thumb disk. Do you wish to copy this package on your Desktop to install it after installing Lion ?" = "Om meer ruite te verkrijgen zijn de extra gesproken taal pakketen niet gekopieerd naar je USB stick. Wil je deze pakketen op je Bureaublad om te kunnen installeren na de Lion installatie?";
+
+"Copy the package on Desktop" = "Kopieer de pakketen naar het Bureaublad";
+
+"Don't copy the package" = "Kopieer de pakketen niet";
+
+"An 8 GB USB thumb drive" = "Een 8 GB USB stick";
+
+"Another kind of disk" = "Een ander soort schrijf";
+
+"Which kind of disk will you use?" = "Welk soort schijf wil je gebruiken?";
+
+"If you have an 8 GB USB thumb drive, it will be completely erased. If you choose another kind of disk, ONLY the chosen volume will be erased. Your other disks and volumes will be left untouched." = "Wanneer je een 8 GB USB stick gebruikt zal deze volledig worden gewist. Wanneer je een andere schrijf kiest zal ALLEEN het gekozen volume worden gewist, andere schijfen en volumes zullen bewaard blijfen.";
+
+"OS X 10.9 Install Disk" =  "OS X 10.9 Installatieschijf";
+
+"OS X 10.10 Install Disk" =  "OS X 10.10 Installatieschijf";
+
+"OS X 10.11 Install Disk" =  "OS X 10.11 Installatieschijf";
+
+"Open Startup Disk Preference" = "Open opstartschijf voorkeuren";
+
+"Please wait, DiskMaker X is copying files…" = "Even wachten, DiskMaker X kopieerd bestanden…";
+
+"This may take a while… Be patient !" = "Dit kan even duren… Wees geduldig!";
+
+"Copying file: " = "Bestand kopieëren: ";
+
+"Here are the disks you may want to use to create your boot disk" = "Dit zijn de schijven die je misschien wil gebruiken om je opstartschijf mee te maken: ";
+
+"Please choose the disk you wish to erase" = "Selecteer alsjeblieft de schijf welke je wil wissen: ";
+
+"Choose this disk" = "Kies deze schijf";
+
+"The following volumes are on the same disk and will be erased:" = "De volgende volumes bevinden zich op de zelfde schijf en zullen worden gewist: ";
+
+"WARNING: THE WHOLE CONTENT OF THE DISK (AND EVERY OTHER VOLUME OF THIS DISK) WILL BE ERASED!" = "WAARSCHUWING: ALLE DATA ZAL VAN DEZE SCHIJF WORDEN GEWIST, OOK DIE OP ANDERE VOLUMES VAN DEZE SCHIJF!";
+
+"Sorry, I can't find a disk to use… Please plug a disk, then click Continue." = "Sorry, ik kan geen bruikbare schijf vinden… Sluit een schijf aan en klik op Verder.";
+
+"If you enjoyed using DiskMaker X, your donations are also much appreciated." = "Wanneer je met plezier gebuikt hebt gemaakt van DiskMaker X zal je donatie zeer gewaardeerd worden.";
+
+"This disk can't be used because it is not a removable disk." = "Deze schijf kan niet worden gebruikt omdat het geen verwijderbare schijf is.";
+
+"You will be required to type your login and password soon." = "Je zult zometeen je inlog wachtwoord moeten invoeren.";
+
+"The next step will ask for administrator privileges to build the install disk, so please type your administrator login and password when necessary."="De volgende stap zal je vragen voor admin rechten om je installatieschijf te kunnen maken, voer dan indien nodig je inlog wachtwoord in.";
+
+"The following volume has already been used as a bootable install disk. Do you want DiskMaker X to use it ? Its content will be completely erased."="Het volgende volume is al gebruikt als een opstartschijf. Wil je dat DiskMaker X deze gebruikt? De inhoud zal volledig worden gewist.";
+
+"Update this volume"="Update dit volume";
+
+"Use another volume"="Gebruik een ander volume";
+
+"Copying files…"="Kopieer bestanden…";
+
+"http://liondiskmaker.com/"="http://liondiskmaker.com/?lang=nl";
+
+"http://liondiskmaker.com/?page_id=149" = "http://liondiskmaker.com/?page_id=NLD&lang=nl";
+
+"Sorry, DiskMaker X is currently not able yet to build a Mavericks Install disk from Mac OS X 10.6. Backup the OS X Mavericks Installer application, upgrade to Mavericks, then build your install disk with DiskMaker X." = "Sorry, DiskMaker X is op dit moment niet in staat om een Mavericks Installatieschijf te maken op Mac OS X 10.6. Maak een backup van het installatie bestand, update naar Mavaricks en maak dan je installatieschijf met DiskMaker X.";
+
+"More information" = "Meer informatie";
+
+"Sorry, your OS X Install app or DMG may be incomplete. Delete your install application, then download it again from the App Store." = "Sorry, je OS X Install app of DMG is mogelijk niet compleet Verwijder je install app en download hem opnieuw vanuit de App store.";
+
+"Sorry, DiskMaker X requires to be run in an admin session. Please switch to an admin session, then launch DiskMaker X again." = "Sorr, DiskMaker X heeft admin rechten nodig op te kunnen werken. Kies een admin sessie en open DiskMaker X opnieuw";
+ 
+"DiskMaker X prepares your disk… please wait!" = "DiskMaker X bereid je schijf voor… even geduld!";
+
+"To get rid of this window, click on it and press Cmd + Q" = "Om dit venster te sluiten, klik erop en toets Cmd + Q";
+
+"Copying file: " = "Kopieer bestand: ";
+
+"Sorry, DiskMaker X is not compatible with Path Finder. Please quit Path Finder, relaunch the Finder if necessary, then run DiskMaker X again."="Sorry, DiskMaker X is niet bruikbaar met Path Finder. Sluit Path Finder af en herstart Finder indien noodzakelijk en herstart DiskMaker X";
