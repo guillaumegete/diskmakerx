@@ -11,4 +11,4 @@ As you may (or not) know, Applescript support in Github is a bit tricky. As I di
 
 So be aware that the main.applescript file https://github.com/guillaumegete/diskmakerx/blob/main/Scripts/main.applescript in the project should be renamed _main.scpt_ to properly use it directly with Script Debugger or Script Editor. 
 
-Also, I do not provid icons for the app. Please bring your own stuff :-)
+Also, I do not provid the main icon for the app, which remains my property. Please bring your own stuff :-)
